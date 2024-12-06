@@ -1,6 +1,8 @@
 // src/components/Home.js
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import individuales from "../../img/test1.png";
+import parejas from "../../img/test2.png";
 
 import "../../styles/home.css";
 
@@ -48,7 +50,7 @@ export const Home = () => {
             <div className="section-about">
                 <h2 className="section-title">Sobre Nosotros</h2>
                 <p className="section-description">
-                    En Mizu HeadSpa te ofrecemos un espacio para relajarte, cuidarte y revitalizar tu cabello con tratamientos únicos y naturales.
+                En Mizu, nos dedicamos a brindarte una experiencia única de head spa que fusiona el autocuidado y el cuidado capilar con tratamientos naturales. Nuestro servicio exclusivo incluye masajes capilares inspirados en técnicas japonesas como AMMA-SHIATSU, proporcionando una profunda relajación mientras revitalizamos tu cabello .
                 </p>
                 <img src="https://placehold.co/800x400" alt="Sobre nosotros" className="about-image" />
             </div>
@@ -59,14 +61,14 @@ export const Home = () => {
                 <div className="services-grid">
                 <Link to="/individuales" className="link-deco" >
                     <div className="service-card">
-                        <img src="https://placehold.co/300x300" alt="Servicio 1" className="service-image" />
+                        <img src={individuales} alt="Servicio 1" className="service-image" />
                         <h3 className="service-title">Servicios Individuales</h3>
                         <p className="service-description">Relájate con tratamientos personalizados.</p>
                     </div>
                     </Link>
                     <Link to="/parejas" className="link-deco">
                     <div className="service-card">
-                        <img src="https://placehold.co/300x300" alt="Servicio 2" className="service-image" />
+                        <img src={parejas} alt="Servicio 2" className="service-image" />
                         <h3 className="service-title">Servicios en Pareja</h3>
                         <p className="service-description">Comparte momentos únicos de relajación.</p>
                     </div>

@@ -1,65 +1,39 @@
-// src/pages/Servicio.js
-import React from "react";
+import React, { useEffect, useContext, useState } from "react";
 import { useParams } from "react-router-dom";
+import { Context } from "../store/appContext";
 import "../../styles/servicio.css";
+import ejemplo1 from "../../img/test3.png";
 
 export const Servicio = () => {
     const { id } = useParams();
+    const { store, actions } = useContext(Context);
+    const [servicio, setServicio] = useState(null);
 
-    // Unificar servicios individuales y de parejas
-    const servicios = [
-        // Servicios Individuales
-        {
-            id: "1",
-            type: "Individual",
-            title: "Masaje Relajante",
-            subtitle: "Especial para el estrés y tensiones musculares",
-            description: "Un masaje diseñado para ayudarte a relajarte y liberar la tensión acumulada.",
-            details: "Este masaje incluye técnicas de relajación profunda con aceites esenciales. Ideal para quienes buscan desconectar del estrés diario.",
-            image: "https://placehold.co/300x300",
-        },
-        {
-            id: "2",
-            type: "Individual",
-            title: "Tratamiento Capilar",
-            subtitle: "Perfecto para la caída del cabello",
-            description: "Repara y revitaliza tu cabello con tratamientos japoneses exclusivos.",
-            details: "Incluye técnicas como el masaje shiatsu capilar, exfoliación del cuero cabelludo y tratamiento con productos naturales.",
-            image: "https://placehold.co/300x300",
-        },
-        // Servicios Parejas
-        {
-            id: "3",
-            type: "Parejas",
-            title: "Masaje en Pareja",
-            subtitle: "Comparte un momento de relajación y conexión con tu ser querido.",
-            description: "Disfruta de un ambiente íntimo y relajante diseñado para dos.",
-            details: "Este masaje incluye velas aromáticas, música suave y aceites esenciales para una experiencia única en pareja.",
-            image: "https://placehold.co/300x300",
-        },
-        {
-            id: "4",
-            type: "Parejas",
-            title: "Spa Romántico",
-            subtitle: "Disfruta de un ambiente íntimo y relajante",
-            description: "Una experiencia romántica diseñada para compartir y desconectar del estrés diario.",
-            details: "Incluye acceso a jacuzzi privado, exfoliación corporal para dos y masajes con aceites esenciales.",
-            image: "https://placehold.co/300x300",
-        },
-    ];
+    useEffect(() => {
+        // Fetch services if not already fetched
+        if (store.services.length === 0) {
+            actions.fetchServices();
+        }
+    }, []);
 
-    // Buscar el servicio seleccionado por ID
-    const servicio = servicios.find((s) => s.id === id);
+    useEffect(() => {
+        // Find the service by ID once services are loaded
+        if (store.services.length > 0) {
+            const foundService = store.services.find((s) => s.id === parseInt(id));
+            setServicio(foundService);
+        }
+    }, [store.services, id]);
 
     return (
         <div className="servicio-container">
             {servicio ? (
                 <>
                     <div className="servicio-header">
-                        <img src={servicio.image} alt={servicio.title} className="servicio-image" />
+                        <img src={servicio.image || ejemplo1} alt={servicio.title} className="servicio-image" />
                         <div className="servicio-info">
                             <h1 className="servicio-title">{servicio.title}</h1>
                             <h2 className="servicio-subtitle">{servicio.subtitle}</h2>
+                            <h3 className="servicio-cost">Precio: {servicio.cost}€</h3>
                         </div>
                     </div>
                     <div className="servicio-details">

@@ -65,16 +65,16 @@ export const ContactUs = () => {
             {/* Información de Contacto */}
             <div className="contact-info">
                 <h2>Información de Contacto</h2>
-                <p><strong>Teléfonos:</strong> +34 912 345 678, +34 678 901 234 (WhatsApp)</p>
-                <p><strong>Correo Electrónico:</strong> info@mizuheadspa.com</p>
+                <p><strong>Teléfono:</strong> <a href="https://wa.me/34691352596" target="_blank" rel="noopener noreferrer">+34 691 352 596 (WhatsApp)</a></p>
+                <p><strong>Correo Electrónico:</strong> Supgou@mizumadrid.com</p>
                 <div className="contact-addresses">
                     <div className="contact-address">
                         <h4>Sede de Servicios Individuales</h4>
-                        <p>Calle Primavera, 123, Madrid, España</p>
+                        <p>Av. Reina Victoria 51, BB Work Space, Cabina #3, Madrid, España</p>
                     </div>
                     <div className="contact-address">
                         <h4>Sede de Servicios Duo</h4>
-                        <p>Avenida Verano, 456, Madrid, España</p>
+                        <p>Calle de Ramos Carrión, 6, Madrid, España</p>
                     </div>
                 </div>
             </div>

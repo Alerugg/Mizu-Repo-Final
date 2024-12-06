@@ -18,7 +18,7 @@ export const Footer = () => {
                     {/* Sede Servicios Duo */}
                     <div className="footer-address">
                         <h4>Sede de Servicios Duo</h4>
-                        <p>Avenida Verano, 456, Madrid, España</p>
+                        <p>Calle de Ramos Carrión, 6, Madrid, España</p>
                     </div>
                 </div>
 
@@ -28,7 +28,9 @@ export const Footer = () => {
                     <a
                         className="btn text-white btn-floating m-1"
                         style={{ backgroundColor: "#3b5998" }}
-                        href="#!"
+                        href="https://facebook.com"
+                        target="_blank"
+                        rel="noopener noreferrer"
                         role="button"
                     >
                         <FaFacebookF />
@@ -37,7 +39,9 @@ export const Footer = () => {
                     <a
                         className="btn text-white btn-floating m-1"
                         style={{ backgroundColor: "#dd4b39" }}
-                        href="#!"
+                        href="https://google.com"
+                        target="_blank"
+                        rel="noopener noreferrer"
                         role="button"
                     >
                         <FaGoogle />

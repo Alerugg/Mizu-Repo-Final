@@ -16,16 +16,16 @@
 .parejas-grid {
     display: flex;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 30px;
     justify-content: center;
 }
 
 .pareja-card {
     background: #09495ba4; /* Azul principal semitransparente */
-    border: none; /* Sin borde */
     border-radius: 10px; /* Bordes redondeados */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra ligera */
-    max-width: 300px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Sombra ligera */
+    max-width: 400px;
+    width: 100%; /* Ancho dinámico */
     text-align: center;
     overflow: hidden;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -33,18 +33,19 @@
     flex-direction: column;
     justify-content: space-between;
     color: #f8f6f0; /* Texto en blanco hueso */
+    padding: 20px; /* Espacio adicional */
 }
 
 .pareja-card:hover {
     transform: translateY(-10px); /* Efecto flotante */
-    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* Sombra más intensa */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Sombra más intensa */
 }
 
 .pareja-image {
     width: 100%;
-    height: 200px;
+    height: 250px; /* Altura ajustada */
     object-fit: cover; /* Ajustar la imagen */
-    border-bottom: 1px solid #ddd;
+    border-radius: 10px 10px 0 0;
 }
 
 .pareja-content {
@@ -52,32 +53,32 @@
 }
 
 .pareja-title {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     font-weight: bold;
     color: #f8f6f0; /* Blanco hueso */
-    margin: 10px 0;
+    margin-top: 15px;
 }
 
 .pareja-subtitle {
-    font-size: 1rem;
+    font-size: 1.2rem;
     font-weight: bold;
     color: #d3e4eb; /* Azul claro tenue */
-    margin-bottom: 10px;
+    margin-bottom: 15px;
 }
 
 .pareja-description {
-    font-size: 0.9rem;
+    font-size: 1rem;
     color: #d3e4eb; /* Azul claro tenue */
-    margin-bottom: 15px;
+    margin-bottom: 20px;
 }
 
 .pareja-button {
     background: #f8f6f0; /* Blanco hueso */
     color: #09495B; /* Azul principal */
     border: none;
-    padding: 10px 20px;
+    padding: 10px 25px;
     border-radius: 5px;
-    font-size: 1rem;
+    font-size: 1.1rem;
     cursor: pointer;
     transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
 }

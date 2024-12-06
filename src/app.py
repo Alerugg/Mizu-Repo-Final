@@ -2,6 +2,7 @@ import os
 from flask import Flask, request, jsonify, url_for, send_from_directory
 from flask_migrate import Migrate
 from flask_swagger import swagger
+from flask_cors import CORS  # Importar Flask-CORS
 from api.utils import APIException, generate_sitemap
 from api.models import db
 from api.routes import api
@@ -13,12 +14,15 @@ static_file_dir = os.path.join(os.path.dirname(os.path.realpath(__file__)), '../
 app = Flask(__name__)
 app.url_map.strict_slashes = False
 
+# Configuración CORS
+CORS(app, resources={r"/api/*": {"origins": "*"}})  # Permitir CORS en todas las rutas de la API
+
 # Configuración de la base de datos
 db_url = os.getenv("DATABASE_URL")
 if db_url is not None:
     app.config['SQLALCHEMY_DATABASE_URI'] = db_url.replace("postgres://", "postgresql://")
 else:
-    app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///test.db"  # Cambio aquí
+    app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///test.db"
 
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 MIGRATE = Migrate(app, db, compare_type=True)
@@ -30,7 +34,7 @@ setup_admin(app)
 # add commands
 setup_commands(app)
 
-# Add all endpoints form the API with a "api" prefix
+# Add all endpoints from the API with a "api" prefix
 app.register_blueprint(api, url_prefix='/api')
 
 # Handle/serialize errors like a JSON object

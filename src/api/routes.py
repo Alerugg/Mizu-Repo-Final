@@ -64,12 +64,17 @@ def get_services_by_type(service_type):
     services = Service.query.filter_by(service_type=service_type).all()
     return jsonify([service.serialize() for service in services]), 200
 
+    
+
 @api.route('/services', methods=['POST'])
 def create_service():
     """
     Create a new service.
     """
     body = request.get_json()
+    if not body:
+        return jsonify({"msg": "Missing data"}), 400
+
     new_service = Service(
         title=body.get('title'),
         subtitle=body.get('subtitle'),
@@ -82,6 +87,7 @@ def create_service():
     db.session.add(new_service)
     db.session.commit()
     return jsonify(new_service.serialize()), 201
+
 
 @api.route('/services/<int:service_id>', methods=['PUT'])
 def update_service(service_id):
