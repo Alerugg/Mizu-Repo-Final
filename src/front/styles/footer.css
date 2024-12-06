@@ -1,0 +1,67 @@
+/* src/components/Footer.css */
+
+.footer-mizu {
+    background-color: #09495B; /* Fondo sólido morado oscuro */
+    color: #f8f6f0; /* Texto en blanco hueso */
+    padding: 20px 10px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    font-family: "Arial", sans-serif;
+}
+
+.footer-mizu-logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #ffe5b4; /* Dorado claro */
+    margin-bottom: 10px;
+}
+
+.footer-mizu-socials {
+    display: flex;
+    gap: 15px;
+}
+
+.footer-mizu-link {
+    text-decoration: none;
+    color: #ffe5b4; /* Dorado claro */
+    font-size: 1.2rem;
+    transition: color 0.3s ease-in-out;
+}
+
+.footer-mizu-link:hover {
+    color: #f8f6f0; /* Blanco hueso en hover */
+}
+
+.footer-mizu-text {
+    font-size: 0.9rem;
+    color: #d3c2aa; /* Dorado más tenue para texto informativo */
+    margin-top: 10px;
+}
+
+.footer-mizu-icon {
+    font-size: 1.5rem; /* Tamaño de los íconos sociales */
+    color: #ffe5b4; /* Dorado claro */
+    transition: color 0.3s ease-in-out;
+}
+
+.footer-mizu-icon:hover {
+    color: #f8f6f0; /* Blanco hueso en hover */
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+    .footer-mizu {
+        padding: 15px 5px;
+    }
+
+    .footer-mizu-socials {
+        gap: 10px;
+    }
+
+    .footer-mizu-text {
+        font-size: 0.8rem;
+    }
+}

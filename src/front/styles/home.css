@@ -1,7 +1,172 @@
-/*
-    home.css: This website contains selectors only used in home.css
+body {
+    background-color:#f5f2e3 ;
+}
+/* General */
 
-    All pages share the styles on index.css but you should create 
-    one more css for each page that will contain the selected used 
-    on that page only (the ones not reused in other pages).
-*/
+
+.home-mizu {
+    font-family: "Arial", sans-serif;
+    background-color: #f5f2e3; /* Azul principal */  
+    color: #f8f6f0; /* Blanco hueso */
+    padding-top: 0;
+    margin: 0;
+}
+
+/* Jumbotron Slider */
+.jumbotron-mizu {
+    width: 90%; /* Ancho ajustado */
+    margin: 0px auto; /* Margen superior para evitar contacto con el navbar */
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    position: relative;
+    background-color: rgba(9, 73, 91, 0.1); /* Transparente con tono principal */
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Sombra */
+}
+
+.jumbotron-slide {
+    width: 100%; /* El ancho de cada slide sigue el del jumbotron */
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px; /* Bordes redondeados para que coincidan */
+}
+
+.jumbotron-overlay {
+    background: rgba(0, 0, 0, 0.5);
+    color: #f8f6f0; /* Blanco hueso */
+    text-align: center;
+    padding: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+}
+
+.jumbotron-title {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    color: #f8f6f0; /* Blanco hueso */
+}
+
+.jumbotron-subtitle {
+    font-size: 1.5rem;
+    color: #f8f6f0; /* Blanco hueso */
+}
+
+.jumbotron-controls {
+    position: absolute;
+    bottom: 10px; /* Botones al borde inferior */
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+}
+
+.control-button {
+    background: #f8f6f0; /* Blanco hueso */
+    color: #09495B; /* Azul principal */
+    border: 2px solid #09495B;
+    padding: 10px 15px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.control-button:hover {
+    background: #09495B; /* Azul principal */
+    color: #f8f6f0; /* Blanco hueso */
+}
+
+/* About Section */
+.section-about, .section-services, .section-gifts {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.section-title {
+    font-size: 2rem;
+    color: #09495B; /* Azul principal */
+    margin-bottom: 20px;
+}
+
+.section-description {
+    font-size: 1rem;
+    margin-bottom: 30px;
+    line-height: 1.6;
+    color: #f8f6f0; /* Blanco hueso */
+}
+
+.about-image, .gift-image {
+    width: 100%;
+    max-width: 800px;
+    border-radius: 10px;
+}
+
+/* Services Section */
+.services-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+}
+
+@media (min-width: 768px) {
+    .services-grid {
+        flex-direction: row;
+        justify-content: center;
+    }
+}
+
+.service-card {
+    background: #09495ba4; /* Blanco hueso */
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 300px;
+    text-align: center;
+}
+
+.service-image {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.service-title {
+    font-size: 1.2rem;
+    color: #f8f6f0; /* Azul principal */
+    margin-top: 10px;
+}
+
+.service-description {
+    font-size: 0.9rem;
+    color: #f8f6f0; /* Azul principal */
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+    .jumbotron-title {
+        font-size: 2rem;
+    }
+
+    .jumbotron-subtitle {
+        font-size: 1rem;
+    }
+
+    .control-button {
+        font-size: 1rem;
+    }
+
+    .section-title {
+        font-size: 1.5rem;
+    }
+
+    .service-title {
+        font-size: 1rem;
+    }
+}

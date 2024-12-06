@@ -1,0 +1,72 @@
+/* src/styles/Servicio.css */
+.servicio-container {
+    padding: 40px 20px;
+    background-color: #f8f6f0; /* Fondo blanco hueso */
+    color: #09495B; /* Azul principal */
+}
+
+.servicio-header {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+
+.servicio-image {
+    max-width: 300px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.servicio-info {
+    max-width: 600px;
+    text-align: left;
+}
+
+.servicio-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #09495B; /* Azul principal */
+}
+
+.servicio-subtitle {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #d3e4eb; /* Azul claro tenue */
+    margin-bottom: 20px;
+}
+
+.servicio-details {
+    text-align: left;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.servicio-description {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.servicio-extra {
+    font-size: 1rem;
+    color: #666; /* Gris tenue */
+    margin-bottom: 30px;
+}
+
+.reservar-button {
+    background: #09495B; /* Azul principal */
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.reservar-button:hover {
+    background-color: #06617d; /* Azul más claro */
+}

@@ -1,0 +1,74 @@
+.navbar-mizu {
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background: #09495B;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  margin-bottom: 20px;
+}
+
+.navbar-mizu-container {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar-mizu-logo h1 {
+  font-size: 1.8rem;
+  color: #f5f2e3; /* Azul principal */
+  font-family: "Serif", sans-serif;
+  cursor: pointer;
+}
+
+.navbar-mizu-links {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+}
+
+.navbar-mizu-link {
+  text-decoration: none;
+  color: #f5f2e3; /* Azul principal */
+  font-size: 1rem;
+  font-weight: bold;
+  transition: color 0.3s ease-in-out;
+}
+
+.navbar-mizu-link:hover {
+  color: #06617d; /* Azul más claro */
+}
+
+.navbar-mizu-book-btn {
+  margin-left: auto;
+  background-color: #e4d9a5; /* Azul principal */
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.navbar-mizu-book-btn:hover {
+  background-color: #06617d; /* Azul más claro */
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+  .navbar-mizu-links {
+      display: none;
+  }
+
+  .navbar-mizu-book-btn {
+      padding: 8px 15px;
+  }
+}

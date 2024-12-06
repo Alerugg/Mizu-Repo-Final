@@ -1,0 +1,88 @@
+/* src/styles/Parejas.css */
+.parejas-container {
+    padding: 60px 20px;
+    text-align: center;
+    background-color: #f8f6f0; /* Fondo blanco hueso */
+    color: #09495B; /* Azul principal */
+}
+
+.parejas-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #09495B; /* Azul principal */
+    margin-bottom: 40px;
+}
+
+.parejas-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.pareja-card {
+    background: #09495ba4; /* Azul principal semitransparente */
+    border: none; /* Sin borde */
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+    max-width: 300px;
+    text-align: center;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: #f8f6f0; /* Texto en blanco hueso */
+}
+
+.pareja-card:hover {
+    transform: translateY(-10px); /* Efecto flotante */
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* Sombra más intensa */
+}
+
+.pareja-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover; /* Ajustar la imagen */
+    border-bottom: 1px solid #ddd;
+}
+
+.pareja-content {
+    padding: 15px;
+}
+
+.pareja-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #f8f6f0; /* Blanco hueso */
+    margin: 10px 0;
+}
+
+.pareja-subtitle {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #d3e4eb; /* Azul claro tenue */
+    margin-bottom: 10px;
+}
+
+.pareja-description {
+    font-size: 0.9rem;
+    color: #d3e4eb; /* Azul claro tenue */
+    margin-bottom: 15px;
+}
+
+.pareja-button {
+    background: #f8f6f0; /* Blanco hueso */
+    color: #09495B; /* Azul principal */
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+.pareja-button:hover {
+    background-color: #06617d; /* Azul más claro */
+    color: #f8f6f0; /* Blanco hueso */
+}
