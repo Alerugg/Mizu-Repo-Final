@@ -18,7 +18,7 @@ const getState = ({ getStore, getActions, setStore }) => {
                         mode: "cors",
                     };
 
-                    const response = await fetch("https://jubilant-engine-7g4q7g9w7vrfw66r-3001.app.github.dev/api/services", requestOptions);
+                    const response = await fetch( process.env.BACKEND_URL + "/api/services", requestOptions);
                     if (!response.ok) {
                         throw new Error("Error al obtener los servicios");
                     }
