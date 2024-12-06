@@ -1,9 +1,11 @@
+/* src/styles/navbar.css */
+
 .navbar-mizu {
   top: 0;
   left: 0;
   width: 100%;
   z-index: 1000;
-  background: #09495B;
+  background: #09495B; /* Azul principal */
   padding: 10px 20px;
   display: flex;
   justify-content: space-between;
@@ -21,54 +23,47 @@
 
 .navbar-mizu-logo h1 {
   font-size: 1.8rem;
-  color: #f5f2e3; /* Azul principal */
+  color: #f5f2e3; /* Blanco hueso */
   font-family: "Serif", sans-serif;
   cursor: pointer;
+  margin: 0;
+}
+
+.navbar-mizu-logo{
+  text-decoration: none;
 }
 
 .navbar-mizu-links {
-  display: flex;
-  list-style: none;
-  gap: 20px;
+    list-style: none; /* Elimina las viñetas de la lista */
+    margin: 0; /* Elimina cualquier margen que pueda afectar el diseño */
+    padding: 0; /* Elimina cualquier padding */
+    display: flex;
+    align-items: center; /* Centra el botón verticalmente */
 }
 
 .navbar-mizu-link {
   text-decoration: none;
-  color: #f5f2e3; /* Azul principal */
-  font-size: 1rem;
+  color: #f5f2e3; /* Blanco hueso */
+  font-size: 0.9rem; /* Tamaño más pequeño */
   font-weight: bold;
-  transition: color 0.3s ease-in-out;
+  padding: 6px 15px; /* Tamaño reducido */
+  border: 1px solid #f5f2e3; /* Borde blanco hueso */
+  border-radius: 20px; /* Botón más redondeado */
+  transition: all 0.3s ease-in-out;
+  text-align: center;
 }
 
 .navbar-mizu-link:hover {
-  color: #06617d; /* Azul más claro */
-}
-
-.navbar-mizu-book-btn {
-  margin-left: auto;
-  background-color: #e4d9a5; /* Azul principal */
-  color: #fff;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  font-size: 1rem;
-  font-weight: bold;
-  cursor: pointer;
-  text-decoration: none;
-  transition: background-color 0.3s ease-in-out;
-}
-
-.navbar-mizu-book-btn:hover {
-  background-color: #06617d; /* Azul más claro */
+  background: #f5f2e3; /* Fondo blanco hueso */
+  color: #09495B; /* Azul principal */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Sombra suave */
+  transform: translateY(-2px); /* Efecto de elevación */
 }
 
 /* Responsividad */
 @media (max-width: 768px) {
-  .navbar-mizu-links {
-      display: none;
-  }
-
-  .navbar-mizu-book-btn {
-      padding: 8px 15px;
+  .navbar-mizu-link {
+      padding: 5px 10px;
+      font-size: 0.8rem;
   }
 }

@@ -57,14 +57,14 @@ export const Home = () => {
             <div className="section-services">
                 <h2 className="section-title">Nuestros Servicios</h2>
                 <div className="services-grid">
-                <Link to="/individuales">
+                <Link to="/individuales" className="link-deco" >
                     <div className="service-card">
                         <img src="https://placehold.co/300x300" alt="Servicio 1" className="service-image" />
                         <h3 className="service-title">Servicios Individuales</h3>
                         <p className="service-description">Relájate con tratamientos personalizados.</p>
                     </div>
                     </Link>
-                    <Link to="/parejas">
+                    <Link to="/parejas" className="link-deco">
                     <div className="service-card">
                         <img src="https://placehold.co/300x300" alt="Servicio 2" className="service-image" />
                         <h3 className="service-title">Servicios en Pareja</h3>

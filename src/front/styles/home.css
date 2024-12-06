@@ -170,3 +170,7 @@ body {
         font-size: 1rem;
     }
 }
+
+.link-deco{
+    text-decoration: none;
+}
