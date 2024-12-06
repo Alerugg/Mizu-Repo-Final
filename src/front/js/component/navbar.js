@@ -14,7 +14,7 @@ export const Navbar = () => {
                 {/* Contactanos */}
                 <ul className="navbar-mizu-links">
                     <li>
-                        <a href="#contact" className="navbar-mizu-link">
+                        <a href="contact" className="navbar-mizu-link">
                             Contáctanos
                         </a>
                     </li>

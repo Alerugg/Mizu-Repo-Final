@@ -1,0 +1,117 @@
+/* src/components/contactUs.css */
+
+.contact-us {
+    font-family: "Arial", sans-serif;
+    padding: 40px 20px;
+    background-color: #f8f6f0;
+    color: #09495B;
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+/* Formulario de Contacto */
+.contact-form {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.contact-form h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #09495B;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #09495B;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.contact-button {
+    background-color: #09495B;
+    color: #ffffff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.contact-button:hover {
+    background-color: #06617d;
+}
+
+/* Información de Contacto */
+.contact-info {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.contact-info h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #09495B;
+}
+
+.contact-info p {
+    font-size: 1rem;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.contact-addresses {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.contact-address {
+    text-align: left;
+}
+
+.contact-address h4 {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #09495B;
+}
+
+.contact-address p {
+    font-size: 1rem;
+    color: #666;
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+    .contact-addresses {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .contact-address {
+        text-align: center;
+    }
+}

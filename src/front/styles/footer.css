@@ -1,54 +1,77 @@
 /* src/components/Footer.css */
 
 .footer-mizu {
-    background-color: #09495B; /* Fondo sólido morado oscuro */
+    background-color: #09495B; /* Fondo sólido azul principal */
     color: #f8f6f0; /* Texto en blanco hueso */
     padding: 20px 10px;
     text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 10px;
+    gap: 20px;
     font-family: "Arial", sans-serif;
 }
 
-.footer-mizu-logo {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #ffe5b4; /* Dorado claro */
-    margin-bottom: 10px;
+.footer-container {
+    width: 100%;
+    max-width: 1200px;
 }
 
-.footer-mizu-socials {
+/* Direcciones */
+.footer-addresses {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0 30px;
+    margin-bottom: 20px;
+}
+
+.footer-address {
+    text-align: left;
+    color: #f8f6f0;
+}
+
+.footer-address h4 {
+    margin-bottom: 5px;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.footer-address p {
+    font-size: 1rem;
+}
+
+/* Redes Sociales */
+.footer-socials {
     display: flex;
     gap: 15px;
+    justify-content: center;
 }
 
-.footer-mizu-link {
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     text-decoration: none;
-    color: #ffe5b4; /* Dorado claro */
-    font-size: 1.2rem;
-    transition: color 0.3s ease-in-out;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    color: #f8f6f0;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-.footer-mizu-link:hover {
-    color: #f8f6f0; /* Blanco hueso en hover */
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-.footer-mizu-text {
+/* Copyright */
+.footer-copyright {
     font-size: 0.9rem;
-    color: #d3c2aa; /* Dorado más tenue para texto informativo */
-    margin-top: 10px;
-}
-
-.footer-mizu-icon {
-    font-size: 1.5rem; /* Tamaño de los íconos sociales */
-    color: #ffe5b4; /* Dorado claro */
-    transition: color 0.3s ease-in-out;
-}
-
-.footer-mizu-icon:hover {
-    color: #f8f6f0; /* Blanco hueso en hover */
+    color: #f8f6f0; /* Texto en color dorado tenue */
+    background-color: rgba(0, 0, 0, 0.05);
+    padding: 15px;
+    width: 100%;
 }
 
 /* Responsividad */
@@ -57,11 +80,21 @@
         padding: 15px 5px;
     }
 
-    .footer-mizu-socials {
+    .footer-addresses {
+        flex-direction: column;
+        align-items: center;
         gap: 10px;
     }
 
-    .footer-mizu-text {
+    .footer-address {
+        text-align: center;
+    }
+
+    .footer-socials {
+        gap: 10px;
+    }
+
+    .footer-copyright {
         font-size: 0.8rem;
     }
 }

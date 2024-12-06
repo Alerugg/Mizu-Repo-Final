@@ -8,6 +8,8 @@ import { Demo } from "./pages/demo";
 import { Individuales } from "./pages/individuales";
 import { Parejas } from "./pages/parejas";
 import { Servicio } from "./pages/servicio";
+import { ContactUs } from "./pages/contactUs";
+import { GiftCard } from "./pages/giftCard";
 import { Single } from "./pages/single";
 import injectContext from "./store/appContext";
 
@@ -33,6 +35,8 @@ const Layout = () => {
                         <Route element={<Individuales />} path="/individuales" />
                         <Route element={<Parejas />} path="/parejas" />
                         <Route element={<Servicio />} path="/servicio/:id" />
+                        <Route element={<ContactUs />} path="/contact" />
+                        <Route element={<GiftCard />} path="/giftcard" />
                         <Route element={<Single />} path="/single/:theid" />
                         <Route element={<h1>Not found!</h1>} />
                     </Routes>

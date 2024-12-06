@@ -78,7 +78,9 @@ export const Home = () => {
             <div className="section-gifts">
                 <h2 className="section-title">Regala Mizu</h2>
                 <p className="section-description">Un regalo único para tus seres queridos.</p>
-                <img src="https://placehold.co/800x400?text=Gift+Mizu" alt="Regala Mizu" className="gift-image" />
+                <Link to="/giftcard" className="link-deco">
+                <img src="https://placehold.co/800x400?text=Regala+Mizu" alt="Regala Mizu" className="gift-image" />
+                </Link>
             </div>
         </div>
     );
