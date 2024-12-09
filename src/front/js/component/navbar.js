@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "../../styles/navbar.css";
+import logomizu from "../../img/mizulogo.png"
 
 export const Navbar = () => {
     return (
@@ -8,7 +9,7 @@ export const Navbar = () => {
             <div className="navbar-mizu-container">
                 {/* Logo */}
                 <Link to="/" className="navbar-mizu-logo">
-                    <h1>Mizu</h1>
+                <img src={logomizu} alt="logo" className="navbar-image" />
                 </Link>
                 
                 {/* Contactanos */}

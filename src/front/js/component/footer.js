@@ -2,6 +2,7 @@ import React from "react";
 import "../../styles/footer.css";
 import { SlSocialInstagram } from "react-icons/sl";
 import { FaTwitter, FaGoogle, FaLinkedinIn, FaGithub, FaFacebookF, FaTiktok } from "react-icons/fa";
+import logosolo from "../../img/logosolo.png"
 
 export const Footer = () => {
     return (

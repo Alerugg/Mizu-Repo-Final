@@ -67,3 +67,9 @@
       font-size: 0.8rem;
   }
 }
+
+.navbar-image{
+  height: 200px;
+  width: 200px;
+  margin: -65px -50px -75px -40px;
+}

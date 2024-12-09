@@ -3,16 +3,15 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import individuales from "../../img/test1.png";
 import parejas from "../../img/test2.png";
-
+import logosolo from "../../img/logosolo.png"
 import "../../styles/home.css";
 
 export const Home = () => {
     const [currentSlide, setCurrentSlide] = useState(0);
 
     const slides = [
-        { id: 1, title: "Relaja tu mente, cuida tu cabello", subtitle: "Descubre la experiencia Mizu HeadSpa", image: "https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExdG8yMXFtMzgwcGRhMmpmajc3N3VwNDQ0aW40aHp2cDRzOXdvMmUxMCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/Nj8b4AlbRUihG/giphy.webp" },
-        { id: 2, title: "Bienestar único", subtitle: "Inspirado en técnicas japonesas para tu cuidado capilar", image: "https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExZW5pajB3ZHFhZnJoazlseTVoZzlmbDluMWd5dnRwNzdiNTBta2xteSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/uWAMPqg3p2TPBEOWT4/giphy.webp" },
-        { id: 3, title: "Regala experiencias", subtitle: "Perfectas para cualquier ocasión", image: "https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExMXNydDBzanpqYXBmbHI2Z2pvYXJpYzR5ZnZ6czZ5anMzaXRsc2xuMiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/zyn9wh94Uwb4s/giphy.webp" }
+        { id: 1, title:"Relaja tu mente, cuida tu cabello", subtitle: "Descubre la experiencia Mizu HeadSpa", image: "https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExdG8yMXFtMzgwcGRhMmpmajc3N3VwNDQ0aW40aHp2cDRzOXdvMmUxMCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/Nj8b4AlbRUihG/giphy.webp" },
+        { id: 2, title: "Bienestar único", subtitle: "Inspirado en técnicas japonesas para tu cuidado capilar", image: "https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExZW5pajB3ZHFhZnJoazlseTVoZzlmbDluMWd5dnRwNzdiNTBta2xteSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/uWAMPqg3p2TPBEOWT4/giphy.webp" }
     ];
 
     const handleNextSlide = () => {
