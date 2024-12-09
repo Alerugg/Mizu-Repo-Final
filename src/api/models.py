@@ -1,6 +1,7 @@
 from flask_sqlalchemy import SQLAlchemy
 
 db = SQLAlchemy()
+
 # Tabla para transacciones de usuarios temporales
 class UserTransaction(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -33,6 +34,7 @@ class Service(db.Model):
     products = db.Column(db.Text, nullable=False)  # Listado de productos incluidos
     cost = db.Column(db.Float, nullable=False)
     service_type = db.Column(db.String(50), nullable=False)  # 'individual' o 'duo'
+    booking_url = db.Column(db.String(255), nullable=True)  # Nueva columna para URLs de reserva
     transactions = db.relationship('UserTransaction', backref='service', lazy=True)
 
     def __repr__(self):
@@ -47,7 +49,8 @@ class Service(db.Model):
             "allergens": self.allergens,
             "products": self.products,
             "cost": self.cost,
-            "service_type": self.service_type
+            "service_type": self.service_type,
+            "booking_url": self.booking_url  # Incluye la URL en la serialización
         }
 
 # Tabla de Promociones

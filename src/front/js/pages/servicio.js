@@ -24,6 +24,12 @@ export const Servicio = () => {
         }
     }, [store.services, id]);
 
+    const handleReservation = () => {
+        if (servicio && servicio.booking_url) {
+            window.open(servicio.booking_url, "_blank", "noopener noreferrer");
+        }
+    };
+
     return (
         <div className="servicio-container">
             {servicio ? (
@@ -39,7 +45,13 @@ export const Servicio = () => {
                     <div className="servicio-details">
                         <p className="servicio-description">{servicio.description}</p>
                         <p className="servicio-extra">{servicio.details}</p>
-                        <button className="reservar-button">Reservar Ahora</button>
+                        <button
+                            className="reservar-button"
+                            onClick={handleReservation}
+                            disabled={!servicio.booking_url}
+                        >
+                            {servicio.booking_url ? "Reservar Ahora" : "No disponible"}
+                        </button>
                     </div>
                 </>
             ) : (

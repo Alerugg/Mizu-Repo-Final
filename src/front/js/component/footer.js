@@ -13,7 +13,8 @@ export const Footer = () => {
                     {/* Sede Servicios Individuales */}
                     <div className="footer-address">
                         <h4>Sede de Servicios Individuales</h4>
-                        <p>Calle Primavera, 123, Madrid, España</p>
+                        <p>Av. Reina Victoria 51. BB Work Space.
+                        Cabina #3, Madrid, España</p>
                     </div>
 
                     {/* Sede Servicios Duo */}
