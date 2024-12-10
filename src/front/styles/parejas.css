@@ -1,4 +1,8 @@
-/* src/styles/Parejas.css */
+body {
+    background-color: #f5f2e3;
+}
+
+/* General */
 .parejas-container {
     padding: 60px 20px;
     text-align: center;
@@ -15,25 +19,32 @@
 
 .parejas-grid {
     display: flex;
-    flex-wrap: wrap;
-    gap: 30px;
+    flex-direction: column;
+    gap: 40px; /* Mayor separación entre las filas */
+}
+
+.parejas-row {
+    display: flex;
     justify-content: center;
+    gap: 40px; /* Mayor separación entre las tarjetas */
+    flex-wrap: wrap;
 }
 
 .pareja-card {
     background: #09495ba4; /* Azul principal semitransparente */
     border-radius: 10px; /* Bordes redondeados */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Sombra ligera */
-    max-width: 400px;
-    width: 100%; /* Ancho dinámico */
+    width: 100%;
+    max-width: 400px; /* Ancho máximo para tarjetas */
     text-align: center;
     overflow: hidden;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    height: auto; /* Ajuste automático de altura */
+    padding: 20px;
     color: #f8f6f0; /* Texto en blanco hueso */
-    padding: 20px; /* Espacio adicional */
 }
 
 .pareja-card:hover {
@@ -43,33 +54,41 @@
 
 .pareja-image {
     width: 100%;
-    height: 250px; /* Altura ajustada */
-    object-fit: cover; /* Ajustar la imagen */
+    height: 200px;
+    object-fit: cover;
     border-radius: 10px 10px 0 0;
 }
 
 .pareja-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-grow: 1;
     padding: 15px;
+}
+
+.pareja-texts {
+    flex-grow: 1;
 }
 
 .pareja-title {
     font-size: 1.8rem;
     font-weight: bold;
     color: #f8f6f0; /* Blanco hueso */
-    margin-top: 15px;
+    margin: 10px 0;
 }
 
 .pareja-subtitle {
     font-size: 1.2rem;
     font-weight: bold;
     color: #d3e4eb; /* Azul claro tenue */
-    margin-bottom: 15px;
+    margin: 5px 0;
 }
 
 .pareja-description {
     font-size: 1rem;
     color: #d3e4eb; /* Azul claro tenue */
-    margin-bottom: 20px;
+    margin: 10px 0;
 }
 
 .pareja-button {
@@ -81,9 +100,30 @@
     font-size: 1.1rem;
     cursor: pointer;
     transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+    align-self: center;
+    margin-top: auto; /* Asegura que el botón esté en la parte inferior */
 }
 
 .pareja-button:hover {
     background-color: #06617d; /* Azul más claro */
     color: #f8f6f0; /* Blanco hueso */
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+    .parejas-row {
+        flex-direction: column;
+    }
+
+    .pareja-title {
+        font-size: 1.5rem;
+    }
+
+    .pareja-subtitle {
+        font-size: 1rem;
+    }
+
+    .pareja-button {
+        font-size: 1rem;
+    }
 }

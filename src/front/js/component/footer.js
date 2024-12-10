@@ -13,14 +13,18 @@ export const Footer = () => {
                     {/* Sede Servicios Individuales */}
                     <div className="footer-address">
                         <h4>Sede de Servicios Individuales</h4>
-                        <p>Av. Reina Victoria 51. BB Work Space.
+                        <a target="_blank" href="https://maps.app.goo.gl/boE4tNgasQzP8fWM9"  >
+                        <p className="footer-address1"  >Av. Reina Victoria 51. BB Work Space.
                         Cabina #3, Madrid, España</p>
+                        </a>
                     </div>
 
                     {/* Sede Servicios Duo */}
                     <div className="footer-address">
-                        <h4>Sede de Servicios Duo</h4>
-                        <p>Calle de Ramos Carrión, 6, Madrid, España</p>
+                        <h4>Sede de Servicios dobles</h4>
+                        <a target="_blank" href="https://maps.app.goo.gl/boE4tNgasQzP8fWM9"  >
+                        <p className="footer-address1"  >Calle de Ramos Carrión, 6, Madrid, España</p>
+                        </a>
                     </div>
                 </div>
 
@@ -30,29 +34,18 @@ export const Footer = () => {
                     <a
                         className="btn text-white btn-floating m-1"
                         style={{ backgroundColor: "#3b5998" }}
-                        href="https://facebook.com"
+                        href="https://www.facebook.com/profile.php?id=61557121016801"
                         target="_blank"
                         rel="noopener noreferrer"
                         role="button"
                     >
                         <FaFacebookF />
                     </a>
-                    {/* Google */}
-                    <a
-                        className="btn text-white btn-floating m-1"
-                        style={{ backgroundColor: "#dd4b39" }}
-                        href="https://google.com"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        role="button"
-                    >
-                        <FaGoogle />
-                    </a>
                     {/* Instagram */}
                     <a
                         className="btn text-white btn-floating m-1"
                         style={{ backgroundColor: "#ac2bac" }}
-                        href="https://instagram.com"
+                        href="https://www.instagram.com/mizumadrid/"
                         target="_blank"
                         rel="noopener noreferrer"
                         role="button"
@@ -63,7 +56,7 @@ export const Footer = () => {
                     <a
                         className="btn text-white btn-floating m-1"
                         style={{ backgroundColor: "#000000" }}
-                        href="https://tiktok.com"
+                        href="https://www.tiktok.com/@mizu_madrid"
                         target="_blank"
                         rel="noopener noreferrer"
                         role="button"

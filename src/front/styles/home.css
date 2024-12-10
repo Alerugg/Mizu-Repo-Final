@@ -105,6 +105,7 @@ body {
 .about-image, .gift-image {
     width: 100%;
     max-width: 800px;
+    max-height: 350px;
     border-radius: 10px;
 }
 

@@ -1,5 +1,4 @@
-/* src/components/Footer.css */
-
+/* Footer Styles */
 .footer-mizu {
     background-color: #09495B; /* Fondo sólido azul principal */
     color: #f8f6f0; /* Texto en blanco hueso */
@@ -39,6 +38,17 @@
 
 .footer-address p {
     font-size: 1rem;
+}
+
+.footer-address a {
+    text-decoration: none;
+    color: #f8f6f0; /* Texto en blanco hueso */
+    transition: transform 0.3s ease;
+}
+
+.footer-address a:hover {
+    transform: scale(1.05);
+    cursor: pointer;
 }
 
 /* Redes Sociales */
