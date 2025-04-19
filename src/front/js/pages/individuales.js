@@ -1,9 +1,8 @@
-// src/pages/Individuales.js
 import React, { useEffect, useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Context } from "../store/appContext";
-import "../../styles/individuales.css";
 import ejemplo1 from "../../img/test3.png";
+import "../../styles/individuales.css";
 
 export const Individuales = () => {
     const { store, actions } = useContext(Context);
@@ -11,57 +10,47 @@ export const Individuales = () => {
     const [services, setServices] = useState([]);
 
     useEffect(() => {
-        // Fetch services on component mount
         actions.fetchServices();
     }, []);
 
     useEffect(() => {
-        // Ensure services are loaded correctly
         if (store.servicesIndividuales) {
             setServices(store.servicesIndividuales);
         }
     }, [store.servicesIndividuales]);
 
-    const handleViewService = (id) => {
-        navigate(`/servicio/${id}`); // Redirige al detalle del servicio con params
+    const handleNavigateToService = (id) => {
+        navigate(`/servicio/${id}`);
     };
 
     return (
-        <div className="individuales-container">
-            <h1 className="individuales-title">Servicios Individuales</h1>
-            <div className="individuales-grid">
-                {services &&
-                    services.reduce((rows, key, index) => {
-                        if (index % 2 === 0) {
-                            rows.push(services.slice(index, index + 2));
-                        }
-                        return rows;
-                    }, []).map((row, rowIndex) => (
-                        <div key={rowIndex} className="individual-row">
-                            {row.map((servicio) => (
-                                <div key={servicio.id} className="individual-card">
-                                    <img 
-                                        src={servicio.image ? servicio.image : ejemplo1} 
-                                        alt={servicio.title} 
-                                        className="individual-image" 
-                                    />
-                                    <div className="individual-content">
-                                        <div className="individual-texts">
-                                            <h2 className="individual-title">{servicio.title}</h2>
-                                            <h3 className="individual-subtitle">{servicio.subtitle}</h3>
-                                            <p className="individual-description">{servicio.description}</p>
-                                        </div>
-                                        <button
-                                            className="individual-button"
-                                            onClick={() => handleViewService(servicio.id)}
-                                        >
-                                            Ver Servicio
-                                        </button>
-                                    </div>
-                                </div>
-                            ))}
+        <div className="indiv-page-wrapper">
+            <h1 className="indiv-page-title">Servicios Individuales</h1>
+            <div className="indiv-grid-container">
+                {services && services.length > 0 ? (
+                    services.map((service) => (
+                        <div key={service.id} className="indiv-card">
+                            <img 
+                                src={service.image || ejemplo1} 
+                                alt={service.title} 
+                                className="indiv-card-image" 
+                            />
+                            <div className="indiv-card-content">
+                                <h2 className="indiv-card-title">{service.title}</h2>
+                                <h3 className="indiv-card-subtitle">{service.subtitle}</h3>
+                                <p className="indiv-card-description">{service.description}</p>
+                                <button 
+                                    className="indiv-card-button"
+                                    onClick={() => handleNavigateToService(service.id)}
+                                >
+                                    Ver Servicio
+                                </button>
+                            </div>
                         </div>
-                    ))}
+                    ))
+                ) : (
+                    <p className="indiv-no-services">No hay servicios disponibles por ahora.</p>
+                )}
             </div>
         </div>
     );

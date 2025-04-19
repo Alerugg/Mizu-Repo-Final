@@ -1,177 +1,127 @@
+/* === Estilos Globales === */
 body {
-    background-color:#f5f2e3 ;
-}
-/* General */
-
-
-.home-mizu {
-    font-family: "Arial", sans-serif;
-    background-color: #f5f2e3; /* Azul principal */  
-    color: #f8f6f0; /* Blanco hueso */
-    padding-top: 0;
+    background-color: #F4F2EF; /* Crema claro */
+    font-family: 'Roboto', sans-serif;
     margin: 0;
-}
-
-/* Jumbotron Slider */
-.jumbotron-mizu {
-    width: 90%; /* Ancho ajustado */
-    margin: 0px auto; /* Margen superior para evitar contacto con el navbar */
-    height: 80vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    position: relative;
-    background-color: rgba(9, 73, 91, 0.1); /* Transparente con tono principal */
-    border-radius: 10px; /* Bordes redondeados */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Sombra */
-}
-
-.jumbotron-slide {
-    width: 100%; /* El ancho de cada slide sigue el del jumbotron */
-    height: 100%;
-    background-size: cover;
-    background-position: center;
-    border-radius: 10px; /* Bordes redondeados para que coincidan */
-}
-
-.jumbotron-overlay {
-    background: rgba(0, 0, 0, 0.5);
-    color: #f8f6f0; /* Blanco hueso */
-    text-align: center;
-    padding: 20px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 80%;
-}
-
-.jumbotron-title {
-    font-size: 3rem;
-    font-weight: bold;
-    margin-bottom: 1rem;
-    color: #f8f6f0; /* Blanco hueso */
-}
-
-.jumbotron-subtitle {
-    font-size: 1.5rem;
-    color: #f8f6f0; /* Blanco hueso */
-}
-
-.jumbotron-controls {
-    position: absolute;
-    bottom: 10px; /* Botones al borde inferior */
-    display: flex;
-    justify-content: center;
-    gap: 10px;
+    padding: 0;
+    color: #0D5C63; /* Texto general */
+  }
+  
+  /* === Navbar === */
+  .navbar {
+    background-color: #0D5C63; /* Verde azulado oscuro */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    position: fixed;
     width: 100%;
-}
-
-.control-button {
-    background: #f8f6f0; /* Blanco hueso */
-    color: #09495B; /* Azul principal */
-    border: 2px solid #09495B;
-    padding: 10px 15px;
-    font-size: 1.2rem;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: all 0.3s ease;
-}
-
-.control-button:hover {
-    background: #09495B; /* Azul principal */
-    color: #f8f6f0; /* Blanco hueso */
-}
-
-/* About Section */
-.section-about, .section-services, .section-gifts {
-    padding: 60px 20px;
-    text-align: center;
-}
-
-.section-title {
-    font-size: 2rem;
-    color: #09495B; /* Azul principal */
-    margin-bottom: 20px;
-}
-
-.section-description {
-    font-size: 1rem;
-    margin-bottom: 30px;
-    line-height: 1.6;
-    color: #09495B; /* Blanco hueso */
-}
-
-.about-image, .gift-image {
-    width: 100%;
-    max-width: 800px;
-    max-height: 350px;
-    border-radius: 10px;
-}
-
-/* Services Section */
-.services-grid {
+    top: 0;
+    left: 0;
+    z-index: 999;
+    padding: 1rem 2rem;
+  }
+  
+  .navbar-container {
+    max-width: 1400px;
+    margin: 0 auto;
     display: flex;
-    flex-direction: column;
-    gap: 20px;
+    justify-content: space-between;
     align-items: center;
-}
-
-@media (min-width: 768px) {
-    .services-grid {
-        flex-direction: row;
-        justify-content: center;
-    }
-}
-
-.service-card {
-    background: #09495ba4; /* Blanco hueso */
-    border-radius: 10px;
-    padding: 20px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    max-width: 300px;
-    text-align: center;
-}
-
-.service-image {
-    width: 100%;
-    border-radius: 10px;
-}
-
-.service-title {
-    font-size: 1.2rem;
-    color: #f8f6f0; /* Azul principal */
-    margin-top: 10px;
-}
-
-.service-description {
-    font-size: 0.9rem;
-    color: #f8f6f0; /* Azul principal */
-}
-
-/* Responsiveness */
-@media (max-width: 768px) {
-    .jumbotron-title {
-        font-size: 2rem;
-    }
-
-    .jumbotron-subtitle {
-        font-size: 1rem;
-    }
-
-    .control-button {
-        font-size: 1rem;
-    }
-
-    .section-title {
-        font-size: 1.5rem;
-    }
-
-    .service-title {
-        font-size: 1rem;
-    }
-}
-
-.link-deco{
+  }
+  
+  .navbar-left {
+    flex: 1;
+    display: flex;
+    justify-content: flex-start;
+  }
+  
+  .navbar-logo img {
+    height: 70px;
+    object-fit: contain;
+  }
+  
+  .navbar-center {
+    flex: 2;
+    display: flex;
+    gap: 2.5rem;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .navbar-link {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #F4F2EF; /* Letras en crema claro */
     text-decoration: none;
-}
+    position: relative;
+    padding: 0.3rem 0;
+    transition: color 0.3s ease;
+  }
+  
+  .navbar-link::after {
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background-color: #A7DAD6; /* Verde menta claro */
+    transition: width 0.3s ease;
+  }
+  
+  .navbar-link:hover::after {
+    width: 100%;
+  }
+  
+  .navbar-link:hover {
+    color: #A7DAD6;
+  }
+  
+  .navbar-right {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  .navbar-whatsapp {
+    display: flex;
+    align-items: center;
+    background-color: #1F7A8C; /* Azul petróleo */
+    color: white;
+    border-radius: 30px;
+    padding: 0.5rem 1.2rem;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  .navbar-whatsapp:hover {
+    background-color: #A7DAD6; /* Verde menta claro */
+    transform: scale(1.05);
+    color: #0D5C63;
+  }
+  
+  .navbar-whatsapp i {
+    margin-right: 0.5rem;
+    font-size: 1.2rem;
+  }
+  
+  /* === Responsive === */
+  @media (max-width: 768px) {
+    .navbar-container {
+      flex-direction: column;
+      gap: 1rem;
+      align-items: center;
+    }
+  
+    .navbar-left,
+    .navbar-center,
+    .navbar-right {
+      justify-content: center;
+      width: 100%;
+    }
+  
+    .navbar-center {
+      flex-wrap: wrap;
+    }
+  }
+  

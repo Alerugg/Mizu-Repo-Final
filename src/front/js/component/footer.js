@@ -1,75 +1,53 @@
 import React from "react";
 import "../../styles/footer.css";
-import { SlSocialInstagram } from "react-icons/sl";
-import { FaTwitter, FaGoogle, FaLinkedinIn, FaGithub, FaFacebookF, FaTiktok } from "react-icons/fa";
-import logosolo from "../../img/logosolo.png"
 
 export const Footer = () => {
-    return (
-        <footer className="footer-mizu bg-body-tertiary text-center">
-            <div className="footer-container container p-4 pb-0">
-                {/* Direcciones */}
-                <div className="footer-addresses">
-                    {/* Sede Servicios Individuales */}
-                    <div className="footer-address">
-                        <h4>Sede de Servicios Individuales</h4>
-                        <a target="_blank" href="https://maps.app.goo.gl/boE4tNgasQzP8fWM9"  >
-                        <p className="footer-address1"  >Av. Reina Victoria 51. BB Work Space.
-                        Cabina #3, Madrid, España</p>
-                        </a>
-                    </div>
+  const currentYear = new Date().getFullYear();
 
-                    {/* Sede Servicios Duo */}
-                    <div className="footer-address">
-                        <h4>Sede de Servicios dobles</h4>
-                        <a target="_blank" href="https://maps.app.goo.gl/boE4tNgasQzP8fWM9"  >
-                        <p className="footer-address1"  >Calle de Ramos Carrión, 6, Madrid, España</p>
-                        </a>
-                    </div>
-                </div>
+  return (
+    <footer className="footer">
+      <div className="footer-content">
+        <div className="footer-section">
+          <h3>Mizu</h3>
+          <p>
+            Relajación y tecnología unidas para ofrecerte experiencias únicas.
+            Bienestar a través de nuestros rituales japoneses.
+          </p>
+          <div className="footer-social">
+            <a href="#" className="social-icon">
+              <i className="fab fa-facebook-f"></i>
+            </a>
+            <a href="#" className="social-icon">
+              <i className="fab fa-instagram"></i>
+            </a>
+            <a href="#" className="social-icon">
+              <i className="fab fa-whatsapp"></i>
+            </a>
+          </div>
+        </div>
 
-                {/* Redes Sociales */}
-                <section className="footer-socials mb-4">
-                    {/* Facebook */}
-                    <a
-                        className="btn text-white btn-floating m-1"
-                        style={{ backgroundColor: "#3b5998" }}
-                        href="https://www.facebook.com/profile.php?id=61557121016801"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        role="button"
-                    >
-                        <FaFacebookF />
-                    </a>
-                    {/* Instagram */}
-                    <a
-                        className="btn text-white btn-floating m-1"
-                        style={{ backgroundColor: "#ac2bac" }}
-                        href="https://www.instagram.com/mizumadrid/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        role="button"
-                    >
-                        <SlSocialInstagram />
-                    </a>
-                    {/* TikTok */}
-                    <a
-                        className="btn text-white btn-floating m-1"
-                        style={{ backgroundColor: "#000000" }}
-                        href="https://www.tiktok.com/@mizu_madrid"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        role="button"
-                    >
-                        <FaTiktok />
-                    </a>
-                </section>
-            </div>
+        <div className="footer-section">
+          <h3>Enlaces Rápidos</h3>
+          <ul className="footer-links">
+            <li><a href="#home">Inicio</a></li>
+            <li><a href="#services">Servicios</a></li>
+            <li><a href="#about">Sobre Nosotros</a></li>
+            <li><a href="#contact">Contacto</a></li>
+          </ul>
+        </div>
 
-            {/* Copyright */}
-            <div className="footer-copyright text-center p-3" style={{ backgroundColor: "rgba(0, 0, 0, 0.05)" }}>
-                &copy; 2024 Mizu Madrid HeadSpa. Todos los derechos reservados.
-            </div>
-        </footer>
-    );
+        <div className="footer-section">
+          <h3>Contacto</h3>
+          <ul className="footer-contact">
+            <li><i className="fas fa-map-marker-alt"></i> Calle Sakura 108, Madrid</li>
+            <li><i className="fas fa-phone"></i> +34 666 111 222</li>
+            <li><i className="fas fa-envelope"></i> info@mizu.com</li>
+          </ul>
+        </div>
+      </div>
+      <div className="footer-bottom">
+        <p>&copy; {currentYear} Mizu. Todos los derechos reservados.</p>
+      </div>
+    </footer>
+  );
 };

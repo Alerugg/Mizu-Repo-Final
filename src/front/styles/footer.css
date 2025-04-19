@@ -1,110 +1,124 @@
-/* Footer Styles */
-.footer-mizu {
-    background-color: #09495B; /* Fondo sólido azul principal */
-    color: #f8f6f0; /* Texto en blanco hueso */
-    padding: 20px 10px;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-    font-family: "Arial", sans-serif;
-}
-
-.footer-container {
-    width: 100%;
-    max-width: 1200px;
-}
-
-/* Direcciones */
-.footer-addresses {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    padding: 0 30px;
-    margin-bottom: 20px;
-}
-
-.footer-address {
-    text-align: left;
-    color: #f8f6f0;
-}
-
-.footer-address h4 {
-    margin-bottom: 5px;
-    font-size: 1.2rem;
-    font-weight: bold;
-}
-
-.footer-address p {
-    font-size: 1rem;
-}
-
-.footer-address a {
-    text-decoration: none;
-    color: #f8f6f0; /* Texto en blanco hueso */
-    transition: transform 0.3s ease;
-}
-
-.footer-address a:hover {
-    transform: scale(1.05);
-    cursor: pointer;
-}
-
-/* Redes Sociales */
-.footer-socials {
-    display: flex;
-    gap: 15px;
-    justify-content: center;
-}
-
-.btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
+.footer {
+    background-color: #0D5C63; /* Verde azulado oscuro */
+    color: #F4F2EF; /* Texto claro */
+    padding: 4rem 0 2rem;
+    font-family: 'Roboto', sans-serif;
+  }
+  
+  .footer-content {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    margin-bottom: 3rem;
+  }
+  
+  .footer-section h3 {
+    color: #A7DAD6; /* Verde menta claro */
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+  }
+  
+  .footer-section h3::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
     width: 40px;
-    height: 40px;
+    height: 2px;
+    background-color: #A7DAD6;
+  }
+  
+  .footer-section p {
+    margin-bottom: 1.5rem;
+    color: #D9C9BA; /* Arena suave */
+    font-family: 'Open Sans', sans-serif;
+  }
+  
+  .footer-social {
+    display: flex;
+  }
+  
+  .social-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #F4F2EF;
     border-radius: 50%;
-    color: #f8f6f0;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-}
-
-.btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-/* Copyright */
-.footer-copyright {
+    margin-right: 12px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .social-icon:hover {
+    background-color: #1F7A8C; /* Azul petróleo */
+  }
+  
+  .footer-links {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .footer-links li {
+    margin-bottom: 12px;
+  }
+  
+  .footer-links a {
+    color: #D9C9BA; /* Arena suave */
+    text-decoration: none;
+    transition: color 0.3s ease;
+    font-family: 'Open Sans', sans-serif;
+  }
+  
+  .footer-links a:hover {
+    color: #A7DAD6;
+    padding-left: 5px;
+  }
+  
+  .footer-contact {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .footer-contact li {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 15px;
+    color: #D9C9BA;
+    font-family: 'Open Sans', sans-serif;
+  }
+  
+  .footer-contact li i {
+    color: #A7DAD6;
+    margin-right: 10px;
+    margin-top: 4px;
+  }
+  
+  .footer-bottom {
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .footer-bottom p {
+    margin: 0;
+    color: #A7DAD6;
     font-size: 0.9rem;
-    color: #f8f6f0; /* Texto en color dorado tenue */
-    background-color: rgba(0, 0, 0, 0.05);
-    padding: 15px;
-    width: 100%;
-}
-
-/* Responsividad */
-@media (max-width: 768px) {
-    .footer-mizu {
-        padding: 15px 5px;
+    font-family: 'Open Sans', sans-serif;
+  }
+  
+  /* Responsive styles */
+  @media (max-width: 992px) {
+    .footer-content {
+      grid-template-columns: repeat(2, 1fr);
     }
-
-    .footer-addresses {
-        flex-direction: column;
-        align-items: center;
-        gap: 10px;
+  }
+  
+  @media (max-width: 576px) {
+    .footer-content {
+      grid-template-columns: 1fr;
     }
-
-    .footer-address {
-        text-align: center;
-    }
-
-    .footer-socials {
-        gap: 10px;
-    }
-
-    .footer-copyright {
-        font-size: 0.8rem;
-    }
-}
+  }
+  

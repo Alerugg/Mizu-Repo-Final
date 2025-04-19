@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import ScrollToTop from "./component/scrollToTop";
 import { BackendURL } from "./component/backendURL";
 
+// Páginas
 import { Home } from "./pages/home";
 import { Demo } from "./pages/demo";
 import { Individuales } from "./pages/individuales";
@@ -11,21 +12,28 @@ import { Servicio } from "./pages/servicio";
 import { ContactUs } from "./pages/contactUs";
 import { GiftCard } from "./pages/giftCard";
 import { Single } from "./pages/single";
-import injectContext from "./store/appContext";
 
+// Componentes globales
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
 
-//create your first component
+
+// Context
+import injectContext from "./store/appContext";
+import '@fortawesome/fontawesome-free/css/all.min.css';
+
+
+// ✅ Importación del CSS global para estilos base y variables (nueva línea)
+import "../styles/app.css"; // Asegúrate de que el archivo exista en src/styles/
+
 const Layout = () => {
-    //the basename is used when your project is published in a subdirectory and not in the root of the domain
-    // you can set the basename on the .env file located at the root of this project, E.g: BASENAME=/react-hello-webapp/
     const basename = process.env.BASENAME || "";
 
-    if(!process.env.BACKEND_URL || process.env.BACKEND_URL == "") return <BackendURL/ >;
+    if (!process.env.BACKEND_URL || process.env.BACKEND_URL === "")
+        return <BackendURL />;
 
     return (
-        <div>
+        <div className="App"> {/* Clase usada por app.css */}
             <BrowserRouter basename={basename}>
                 <ScrollToTop>
                     <Navbar />
@@ -38,7 +46,7 @@ const Layout = () => {
                         <Route element={<ContactUs />} path="/contact" />
                         <Route element={<GiftCard />} path="/giftcard" />
                         <Route element={<Single />} path="/single/:theid" />
-                        <Route element={<h1>Not found!</h1>} />
+                        <Route element={<h1>Not found!</h1>} path="*" />
                     </Routes>
                     <Footer />
                 </ScrollToTop>

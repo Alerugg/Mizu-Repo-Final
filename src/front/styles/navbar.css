@@ -1,75 +1,68 @@
-/* src/styles/navbar.css */
-
-.navbar-mizu {
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 1000;
-  background: #09495B; /* Azul principal */
-  padding: 10px 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  margin-bottom: 20px;
-}
-
-.navbar-mizu-container {
-  display: flex;
-  width: 100%;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.navbar-mizu-logo h1 {
-  font-size: 1.8rem;
-  color: #f5f2e3; /* Blanco hueso */
-  font-family: "Serif", sans-serif;
-  cursor: pointer;
-  margin: 0;
-}
-
-.navbar-mizu-logo{
-  text-decoration: none;
-}
-
-.navbar-mizu-links {
-    list-style: none; /* Elimina las viñetas de la lista */
-    margin: 0; /* Elimina cualquier margen que pueda afectar el diseño */
-    padding: 0; /* Elimina cualquier padding */
-    display: flex;
-    align-items: center; /* Centra el botón verticalmente */
-}
-
-.navbar-mizu-link {
-  text-decoration: none;
-  color: #f5f2e3; /* Blanco hueso */
-  font-size: 0.9rem; /* Tamaño más pequeño */
-  font-weight: bold;
-  padding: 6px 15px; /* Tamaño reducido */
-  border: 1px solid #f5f2e3; /* Borde blanco hueso */
-  border-radius: 20px; /* Botón más redondeado */
+.custom-navbar {
+  background-color: rgba(13, 92, 99, 0.85);
+  backdrop-filter: blur(6px);
+  border-radius: 20px;
+  padding: 0.8rem 2rem;
+  margin: 1rem 2rem;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease-in-out;
-  text-align: center;
+  position: fixed;
+  width: calc(100% - 4rem);
+  top: 0;
+  z-index: 999;
+  height: 80px; /* Altura fija */
+  overflow: hidden; /* Corta si el logo se sale */
 }
 
-.navbar-mizu-link:hover {
-  background: #f5f2e3; /* Fondo blanco hueso */
-  color: #09495B; /* Azul principal */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Sombra suave */
-  transform: translateY(-2px); /* Efecto de elevación */
+
+
+.navbar-logo-img {
+  height: 260px;
+  width: auto;
+  object-fit: contain;
+  position: relative;
+  top: 10px; /* Saca hacia abajo sin empujar al navbar */
+  transition: transform 0.3s ease;
 }
 
-/* Responsividad */
-@media (max-width: 768px) {
-  .navbar-mizu-link {
-      padding: 5px 10px;
-      font-size: 0.8rem;
-  }
+
+
+.navbar-logo-img:hover {
+  transform: scale(1.05);
 }
 
-.navbar-image{
-  height: 200px;
-  width: 200px;
-  margin: -65px -50px -75px -40px;
+
+.nav-link {
+  color: #F4F2EF !important;
+  font-weight: 700;
+  margin: 0 10px;
+  position: relative;
+}
+
+.nav-link:hover {
+  color: #A7DAD6 !important;
+}
+
+.navbar-whatsapp {
+  display: flex;
+  align-items: center;
+  background-color: #1F7A8C;
+  color: white;
+  border-radius: 30px;
+  padding: 0.5rem 1.2rem;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.navbar-whatsapp:hover {
+  background-color: #A7DAD6;
+  transform: scale(1.05);
+  color: #0D5C63;
+}
+
+.navbar-whatsapp i {
+  margin-right: 0.5rem;
+  font-size: 1.2rem;
 }
