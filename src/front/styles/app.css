@@ -41,6 +41,13 @@ body {
   /* 🔑  evita desbordes laterales */
 }
 
+body {
+  font-family: 'Roboto', system-ui, sans-serif;
+}
+h1, h2, h3, h4 {
+  font-family: 'Nixie One', cursive;
+}
+
 /* =========  EFECTO  ∞‑SCROLL  ========== */
 body {
   background: url("https://res.cloudinary.com/dfagobkwv/image/upload/f_auto,q_auto/v1745081928/20250419_185409_0000_nahgbs.png") center/cover no-repeat fixed;
@@ -106,14 +113,20 @@ body {
 }
 
 .imgHero {
-  width: min(95%, 650px);
-  /*  ⬅︎  más grande que antes */
-  max-width: 800px;
-  /*  evita que explote en pantallas 4K */
-  position: relative;
-  z-index: 1;
-  filter: drop-shadow(0 4px 15px rgba(0, 0, 0, .35));
+  width: min(100%, 1000px);     /* antes estaba en 650–800px */
+  max-width: 1200px;
+  margin: 0 auto;
+  display: block;
+  filter: drop-shadow(0 4px 15px rgba(0, 0, 0, 0.35));
+  animation: heroZoom 1.8s ease;
 }
+
+@keyframes heroZoom {
+  0% { transform: scale(1); opacity: 0; }
+  40% { transform: scale(1.15); opacity: 1; }
+  100% { transform: scale(1); }
+}
+
 
 
 /* ========  SERVICIOS  ======== */
@@ -293,5 +306,17 @@ body {
 
   .custom-navbar {
     padding: .8rem 1.2rem
+  }
+}
+
+@media (max-width: 576px) {
+  .terapeuta-card {
+    width: 140px;             /* antes 160px */
+    padding: 1rem;
+  }
+
+  .terapeuta-img {
+    width: 110px;             /* antes 130px */
+    height: 170px;            /* ajustado proporcionalmente */
   }
 }
