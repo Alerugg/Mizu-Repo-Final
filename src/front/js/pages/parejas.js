@@ -2,64 +2,56 @@
 import React, { useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { Context } from "../store/appContext";
-import "../../styles/parejas.css";
 import ejemplo1 from "../../img/test3.png";
+import "../../styles/parejas.css";
 
 export const Parejas = () => {
     const { store, actions } = useContext(Context);
     const navigate = useNavigate();
 
     useEffect(() => {
-        // Fetch services on component mount if not already fetched
         if (store.servicesDuos.length === 0) {
             actions.fetchServices();
         }
     }, []);
 
-    const divideServicesIntoRows = (services, rowSize) => {
-        const rows = [];
-        for (let i = 0; i < services.length; i += rowSize) {
-            rows.push(services.slice(i, i + rowSize));
-        }
-        return rows;
-    };
-
     const handleViewService = (id) => {
-        navigate(`/servicio/${id}`); // Redirige al detalle del servicio con params
+        navigate(`/servicio/${id}`);
     };
 
     return (
-        <div className="parejas-container">
-            <h1 className="parejas-title">Servicios en Pareja</h1>
-            <div className="parejas-grid">
-                {store.servicesDuos &&
-                    divideServicesIntoRows(store.servicesDuos, 2).map((row, rowIndex) => (
-                        <div key={rowIndex} className="parejas-row">
-                            {row.map((servicio) => (
-                                <div key={servicio.id} className="pareja-card">
+        <section className="parejas-section">
+            <div className="parejas-overlay">
+                <h1 className="parejas-title">Servicios en Pareja</h1>
+                <div className="parejas-card-list">
+                    {store.servicesDuos && store.servicesDuos.length > 0 ? (
+                        store.servicesDuos.map((servicio, index) => (
+                            <div key={servicio.id} className={`parejas-card-container ${index % 2 !== 0 ? "reverse" : ""}`}>
+                                <div className="parejas-img-wrapper">
                                     <img
                                         src={servicio.image || ejemplo1}
                                         alt={servicio.title}
-                                        className="pareja-image"
+                                        className="parejas-img"
                                     />
-                                    <div className="pareja-content">
-                                        <div className="pareja-texts">
-                                            <h2 className="pareja-title">{servicio.title}</h2>
-                                            <h3 className="pareja-subtitle">{servicio.subtitle}</h3>
-                                            <p className="pareja-description">{servicio.description}</p>
-                                        </div>
-                                        <button
-                                            className="pareja-button"
-                                            onClick={() => handleViewService(servicio.id)}
-                                        >
-                                            Ver Servicio
-                                        </button>
-                                    </div>
                                 </div>
-                            ))}
-                        </div>
-                    ))}
+                                <div className="parejas-card-body">
+                                    <h2 className="parejas-card-title">{servicio.title}</h2>
+                                    <h3 className="parejas-card-subtitle">{servicio.subtitle}</h3>
+                                    <p className="parejas-card-description">{servicio.description}</p>
+                                    <button
+                                        className="parejas-card-btn"
+                                        onClick={() => handleViewService(servicio.id)}
+                                    >
+                                        Ver Servicio
+                                    </button>
+                                </div>
+                            </div>
+                        ))
+                    ) : (
+                        <p className="parejas-empty-text">No hay servicios disponibles en este momento.</p>
+                    )}
+                </div>
             </div>
-        </div>
+        </section>
     );
 };

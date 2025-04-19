@@ -1,89 +1,74 @@
-// ContactForm.jsx
 import React from "react";
 import { useForm } from "react-hook-form";
-import { motion } from "framer-motion";
 import "../../styles/ContactFormMizu.css";
 
 const ContactForm = () => {
   const {
     register,
     handleSubmit,
-    reset,
-    formState: { errors, isSubmitSuccessful },
+    formState: { errors },
   } = useForm();
 
   const onSubmit = (data) => {
-    console.log(data);
-    reset();
+    console.log("Formulario enviado:", data);
   };
 
   return (
-    <section id="contact" className="contact-section">
-      <div className="container">
-        <motion.h2
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-        >
-          Contáctanos
-        </motion.h2>
-        <motion.form
-          onSubmit={handleSubmit(onSubmit)}
-          className="contact-form"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.4, duration: 0.6 }}
-        >
-          <div className="form-group">
-            <input
-              type="text"
-              placeholder="Nombre completo"
-              {...register("name", { required: "Este campo es obligatorio" })}
-            />
-            {errors.name && <p className="error-text">{errors.name.message}</p>}
-          </div>
+    <form className="form-mizu" onSubmit={handleSubmit(onSubmit)}>
+      <div className="form-grid">
+        <div className="form-group">
+          <label>Nombre de la empresa*</label>
+          <input
+            type="text"
+            {...register("empresa", { required: "Este campo es obligatorio" })}
+            className={errors.empresa ? "error" : ""}
+            placeholder="Nombre de la empresa"
+          />
+          {errors.empresa && <span>{errors.empresa.message}</span>}
+        </div>
 
-          <div className="form-group">
-            <input
-              type="email"
-              placeholder="Correo electrónico"
-              {...register("email", {
-                required: "Correo obligatorio",
-                pattern: {
-                  value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-                  message: "Correo no válido",
-                },
-              })}
-            />
-            {errors.email && <p className="error-text">{errors.email.message}</p>}
-          </div>
+        <div className="form-group">
+          <label>Nombre de la persona*</label>
+          <input
+            type="text"
+            {...register("nombre", { required: "Este campo es obligatorio" })}
+            className={errors.nombre ? "error" : ""}
+            placeholder="Tu nombre completo"
+          />
+          {errors.nombre && <span>{errors.nombre.message}</span>}
+        </div>
 
-          <div className="form-group">
-            <textarea
-              rows="5"
-              placeholder="Tu mensaje"
-              {...register("message", { required: "Por favor escribe un mensaje" })}
-            ></textarea>
-            {errors.message && (
-              <p className="error-text">{errors.message.message}</p>
-            )}
-          </div>
+        <div className="form-group">
+          <label>Correo electrónico*</label>
+          <input
+            type="email"
+            {...register("email", {
+              required: "Campo obligatorio",
+              pattern: {
+                value: /^\S+@\S+$/i,
+                message: "Correo inválido",
+              },
+            })}
+            className={errors.email ? "error" : ""}
+            placeholder="ejemplo@empresa.com"
+          />
+          {errors.email && <span>{errors.email.message}</span>}
+        </div>
 
-          <button type="submit" className="btn-form">Enviar mensaje</button>
-
-          {isSubmitSuccessful && (
-            <motion.p
-              className="success-msg"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.3 }}
-            >
-              ¡Gracias por tu mensaje! Te responderemos pronto.
-            </motion.p>
-          )}
-        </motion.form>
+        <div className="form-group">
+          <label>Teléfono</label>
+          <input
+            type="tel"
+            {...register("telefono")}
+            placeholder="+34 600 000 000"
+          />
+        </div>
       </div>
-    </section>
+
+      <button type="submit" className="form-submit">
+        Enviar
+      </button>
+    </form>
   );
 };
 

@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import ScrollToTop from "./component/scrollToTop";
 import { BackendURL } from "./component/backendURL";
 
+
 // Páginas
 import { Home } from "./pages/home";
 import { Demo } from "./pages/demo";
@@ -12,6 +13,7 @@ import { Servicio } from "./pages/servicio";
 import { ContactUs } from "./pages/contactUs";
 import { GiftCard } from "./pages/giftCard";
 import { Single } from "./pages/single";
+import { PrivacyPolicy } from "./pages/privacyPolicy";
 
 // Componentes globales
 import { Navbar } from "./component/navbar";
@@ -21,6 +23,7 @@ import { Footer } from "./component/footer";
 // Context
 import injectContext from "./store/appContext";
 import '@fortawesome/fontawesome-free/css/all.min.css';
+
 
 
 // ✅ Importación del CSS global para estilos base y variables (nueva línea)
@@ -41,6 +44,7 @@ const Layout = () => {
                         <Route element={<Home />} path="/" />
                         <Route element={<Demo />} path="/demo" />
                         <Route element={<Individuales />} path="/individuales" />
+                        <Route element={<PrivacyPolicy />} path="/privacy" />
                         <Route element={<Parejas />} path="/parejas" />
                         <Route element={<Servicio />} path="/servicio/:id" />
                         <Route element={<ContactUs />} path="/contact" />

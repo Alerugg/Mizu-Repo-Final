@@ -1,0 +1,69 @@
+.card {
+    --gap: 1.5rem;
+    display: flex;
+    max-width: 960px;
+    margin: 0 auto 3.5rem;
+    background: rgba(13,92,99,.6);
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+    cursor: pointer;
+    transition: transform .3s ease, box-shadow .3s ease;
+  }
+  
+  .card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 35px rgba(0,0,0,.18);
+  }
+  
+  .reverse { flex-direction: row-reverse; }
+  
+  .imgWrapper   { flex: 1 1 320px; max-height: 100%; }
+  .imgWrapper > img {
+    width: 100%; height: 100%; object-fit: cover;
+  }
+  
+  .text {
+    flex: 2 1 0;
+    padding: var(--gap);
+    color: var(--c-txt-light);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .text h3 {
+    font-size: 2rem;
+    color: #fff;
+    margin-bottom: .25rem;
+  }
+  .subtitle {
+    font-size: 1.15rem;
+    color: var(--c-accent);
+    margin-bottom: .75rem;
+  }
+  
+  ul {
+    list-style: none;
+    padding-left: 0;
+  }
+  li {
+    position: relative;
+    margin-bottom: .5rem;
+    padding-left: 1.4rem;
+  }
+  li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: #fff;
+    font-size: 1.25rem;
+    line-height: 1;
+  }
+  
+  /* ------------ Mobile ------------- */
+  @media (max-width: 768px) {
+    .card, .reverse { flex-direction: column; }
+    .imgWrapper { height: 220px; }
+  }
+  
