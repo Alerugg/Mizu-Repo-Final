@@ -1,322 +1,189 @@
-/* =========  PALETA CORPORATIVA  ========= */
-:root {
-  --c-bg: #F4F2EF;
-  /* crema claro                      */
-  --c-bg-t: rgba(244, 242, 239, .88);
-  /* crema translúcida                */
-  --c-primary: #0D5C63;
-  /* verde azulado oscuro             */
-  --c-primary-t: rgba(13, 92, 99, .55);
-  /* idem con alfa                    */
-  --c-accent: #A7DAD6;
-  /* verde menta                      */
-  --c-secondary: #1F7A8C;
-  /* azul petróleo                    */
-  --c-sand: #D9C9BA;
-  /* arena suave                      */
-  --c-sand-t: rgba(217, 201, 186, .85);
-  /* arena translúcida                */
+/* =========================================================
+   GLOBAL.CSS  –  Mizu HeadSpa
+   (Navbar · Hero · Servicios · Terapeutas · Contacto)
+   ========================================================= */
 
-  --radius-xl: 18px;
-  --shadow-lg: 0 8px 24px rgba(0, 0, 0, .12);
+/* ----------  PALETA & VARIABLES  ---------- */
+:root{
+  /* Colores */
+  --c-bg:#F4F2EF;           --c-bg-t:rgba(244,242,239,.88);
+  --c-primary:#0D5C63;      --c-primary-t:rgba(13,92,99,.55);
+  --c-accent:#A7DAD6;       --c-secondary:#1F7A8C;
+  --c-sand:#D9C9BA;         --c-sand-t:rgba(217,201,186,.85);
+
+  /* UI */
+  --radius-xl:18px;         --shadow-lg:0 8px 24px rgba(0,0,0,.12);
+
+  /* Service‑card padding */
+  --svc-pad-desktop:1.8rem 2.2rem;
+  --svc-pad-mobile:1.4rem 1.6rem;
+
+  /* Proporción foto servicios */
+  --svc-aspect:16 / 9;
 }
 
-/* =========  RESETEO BÁSICO  ========== */
-*,
-::before,
-::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0
+/* ----------  RESET & TIPOS  ---------- */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html,body{
+  height:100%;font-family:'Roboto',sans-serif;
+  background:var(--c-bg);color:var(--c-primary);
+  scroll-behavior:smooth;overflow-x:hidden;
+}
+h1,h2,h3,h4{font-family:'Nixie One',cursive;}
+
+/* ----------  FONDO FIJO  ---------- */
+body{
+  background:url("https://res.cloudinary.com/dfagobkwv/image/upload/f_auto,q_auto/v1745081928/20250419_185409_0000_nahgbs.png")
+             center/cover fixed;
 }
 
-html,
-body {
-  height: 100%;
-  font-family: 'Roboto', system-ui, sans-serif;
-  background: var(--c-bg);
-  color: var(--c-primary);
-  scroll-behavior: smooth;
-  overflow-x: hidden;
-  /* 🔑  evita desbordes laterales */
+/* =========================================================
+   NAVBAR
+   ========================================================= */
+.custom-navbar{
+  background:var(--c-primary-t);backdrop-filter:blur(6px);
+  border-radius:30px;padding:1rem 2.5rem;margin:1rem 2rem;
+  box-shadow:var(--shadow-lg);
+}
+.nav-link{
+  color:var(--c-bg)!important;font-weight:700;margin:0 .9rem;position:relative;
+}
+.nav-link::after{
+  content:"";position:absolute;left:0;bottom:-6px;width:0;height:2px;
+  background:var(--c-accent);transition:width .3s;
+}
+.nav-link:hover::after,.nav-link.active::after{width:100%;}
+.navbar-whatsapp{background:var(--c-secondary);}
+.navbar-whatsapp:hover{background:var(--c-accent);color:var(--c-primary);}
+
+/* =========================================================
+   HERO
+   ========================================================= */
+.hero{
+  min-height:100vh;display:grid;place-items:center;
+  position:relative;text-align:center;
+}
+.hero::before{
+  content:"";position:absolute;inset:0;background:var(--c-primary-t);z-index:0;
+}
+.imgHero{
+  width:min(100%,1000px);max-width:1200px;
+  margin:0 auto;display:block;
+  filter:drop-shadow(0 4px 15px rgba(0,0,0,.35));
+  animation:heroZoom 1.8s ease;
+}
+@keyframes heroZoom{
+  0%{transform:scale(1);opacity:0;}
+  40%{transform:scale(1.15);opacity:1;}
+  100%{transform:scale(1);}
 }
 
-body {
-  font-family: 'Roboto', system-ui, sans-serif;
-}
-h1, h2, h3, h4 {
-  font-family: 'Nixie One', cursive;
-}
-
-/* =========  EFECTO  ∞‑SCROLL  ========== */
-body {
-  background: url("https://res.cloudinary.com/dfagobkwv/image/upload/f_auto,q_auto/v1745081928/20250419_185409_0000_nahgbs.png") center/cover no-repeat fixed;
+/* =========================================================
+   SERVICIOS
+   ========================================================= */
+.services{background:var(--c-sand-t);padding:6rem 1.5rem;}
+.services-title{
+  text-align:center;margin-bottom:4rem;
+  font-size:clamp(2rem,5vw,2.8rem);color:var(--c-bg);
 }
 
-/* ========  NAVBAR  ======== */
-.custom-navbar {
-  background: var(--c-primary-t);
-  backdrop-filter: blur(6px);
-  border-radius: 30px;
-  padding: 1rem 2.5rem;
-  margin: 1rem 2rem;
-  box-shadow: var(--shadow-lg);
+/* --- Tarjeta --- */
+.service-card{
+  display:flex;flex-wrap:nowrap;
+  max-width:960px;margin:0 auto 3.5rem;
+  background:var(--c-primary-t);
+  border-radius:var(--radius-xl);
+  overflow:hidden;box-shadow:var(--shadow-lg);
+  transition:transform .3s,box-shadow .3s;cursor:pointer;
+}
+.service-card:hover{transform:translateY(-6px);box-shadow:0 12px 35px rgba(0,0,0,.18);}
+.service-card.reverse{flex-direction:row-reverse;}
+
+/* Imagen – foto completa */
+.service-image-wrapper{
+  flex:0 0 350px;max-width:350px;
+  aspect-ratio:var(--svc-aspect);
+  overflow:hidden;
+}
+.service-image{
+  width:100%;height:100%;display:block;
+  object-fit:contain;object-position:center;
 }
 
-.nav-link {
-  color: var(--c-bg) !important;
-  font-weight: 700;
-  margin: 0 .9rem;
-  position: relative
+/* Texto */
+.service-text{flex:1 1 0;padding:var(--svc-pad-desktop);color:var(--c-bg);}
+.service-title{font-size:2rem;margin-bottom:.35rem;}
+.service-subtitle{font-size:1.2rem;color:var(--c-accent);margin-bottom:.9rem;}
+.service-desc{text-align:justify;line-height:1.7;margin-bottom:.9rem;}
+.service-list{list-style:none;padding-left:0;margin:0;}
+.service-list li{position:relative;margin-bottom:.55rem;padding-left:1.4rem;}
+.service-list li::before{content:"•";position:absolute;left:0;color:#fff;font-size:1.25rem;}
+
+/* -------- Ajuste de ALTURA solo para desktop -------- */
+@media (min-width:992px){
+  .service-image-wrapper{max-height:420px;} /* recorta hueco extra   */
+  .service-image{object-fit:cover;}         /* llena contenedor      */
 }
 
-.nav-link::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -6px;
-  width: 0;
-  height: 2px;
-  background: var(--c-accent);
-  transition: width .3s
+/* Tablet 768‑991 px */
+@media (min-width:768px) and (max-width:991px){
+  .service-image-wrapper{flex:0 0 300px;max-width:300px;}
 }
 
-.nav-link:hover::after,
-.nav-link.active::after {
-  width: 100%
-}
-
-.navbar-whatsapp {
-  background: var(--c-secondary)
-}
-
-.navbar-whatsapp:hover {
-  background: var(--c-accent);
-  color: var(--c-primary)
-}
-
-/* ========  HERO  ======== */
-.hero {
-  min-height: 100vh;
-  display: grid;
-  place-items: center;
-  position: relative;
-  text-align: center
-}
-
-.hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: var(--c-primary-t);
-  z-index: 0
-}
-
-.imgHero {
-  width: min(100%, 1000px);     /* antes estaba en 650–800px */
-  max-width: 1200px;
-  margin: 0 auto;
-  display: block;
-  filter: drop-shadow(0 4px 15px rgba(0, 0, 0, 0.35));
-  animation: heroZoom 1.8s ease;
-}
-
-@keyframes heroZoom {
-  0% { transform: scale(1); opacity: 0; }
-  40% { transform: scale(1.15); opacity: 1; }
-  100% { transform: scale(1); }
-}
-
-
-
-/* ========  SERVICIOS  ======== */
-.services {
-  background: var(--c-sand-t);
-  padding: 6rem 1.5rem
-}
-
-.services-title {
-  text-align: center;
-  margin-bottom: 4rem;
-  font-size: clamp(2rem, 5vw, 2.8rem);
-  color: var(--c-bg)
-}
-
-.service-card {
-  display: flex;
-  max-width: 960px;
-  margin: 0 auto 3.5rem;
-  background: var(--c-primary-t);
-  border-radius: var(--radius-xl);
-  overflow: hidden;
-  box-shadow: var(--shadow-lg);
-  transition: transform .3s, box-shadow .3s;
-  cursor: pointer
-}
-
-.service-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 12px 35px rgba(0, 0, 0, .18)
-}
-
-.service-card.reverse {
-  flex-direction: row-reverse
-}
-
-.service-image-wrapper {
-  flex: 1 1 320px
-}
-
-.service-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover
-}
-
-.service-text {
-  flex: 2 1 0;
-  padding: 2rem 2.5rem;
-  color: var(--c-bg)
-}
-
-.service-title {
-  font-size: 2rem;
-  margin-bottom: .35rem
-}
-
-.service-subtitle {
-  font-size: 1.2rem;
-  color: var(--c-accent);
-  margin-bottom: .9rem
-}
-
-.service-desc {
-  text-align: justify;
-  line-height: 1.7;
-  margin-bottom: .9rem
-}
-
-.service-list {
-  list-style: none;
-  padding-left: 0;
-  margin: 0
-}
-
-.service-list li {
-  position: relative;
-  margin-bottom: .55rem;
-  padding-left: 1.4rem
-}
-
-.service-list li::before {
-  content: "•";
-  position: absolute;
-  left: 0;
-  color: #fff;
-  font-size: 1.25rem
-}
-
-/* ========  TERAPEUTAS  ======== */
-.terapeutas-section {
-  background: var(--c-bg-t);
-  padding: 6rem 1.5rem;
-  text-align: center
-}
-
-.terapeutas-title {
-  font-size: clamp(2rem, 5vw, 2.8rem);
-  color: var(--c-primary);
-  margin-bottom: 4rem
-}
-
-.terapeutas-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2.5rem;
-  justify-content: center
-}
-
-.terapeuta-card {
-  background: var(--c-primary-t);
-  border-radius: var(--radius-xl);
-  box-shadow: var(--shadow-lg);
-  padding: 2rem;
-  width: 240px;
-  color: var(--c-bg);
-  display: flex;
-  flex-direction: column;
-  align-items: center
-}
-
-.terapeuta-img {
-  width: 180px;
-  height: 280px;
-  object-fit: cover;
-  border-radius: 100px/140px;
-  margin-bottom: 1.2rem
-}
-
-.terapeuta-name {
-  font-size: 1.35rem;
-  font-weight: bold;
-  margin-bottom: .35rem
-}
-
-.terapeuta-role {
-  font-size: 1rem;
-  color: var(--c-accent)
-}
-
-/* ========  CONTACTO  ======== */
-.contact {
-  background: var(--c-sand-t);
-  padding: 6rem 1.5rem;
-  color: var(--c-primary);
-  position: relative
-}
-
-.contact::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(255, 255, 255, .65);
-  z-index: -1
-}
-
-.contact .services-title {
-  color: var(--c-primary);
-  margin-bottom: 2.5rem
-}
-
-/* ========  RESPONSIVE  ======== */
-@media(max-width:768px) {
-
+/* Mobile ≤767 px */
+@media (max-width:767px){
   .service-card,
-  .service-card.reverse {
-    flex-direction: column
+  .service-card.reverse{flex-direction:column;}
+  .service-image-wrapper{
+    width:100%;max-width:none;
+    aspect-ratio:var(--svc-aspect);margin-bottom:1rem;
   }
-
-  .service-image-wrapper {
-    height: 220px
-  }
-
-  .terapeuta-card {
-    width: 210px
-  }
-
-  .custom-navbar {
-    padding: .8rem 1.2rem
-  }
+  .service-image{object-fit:cover;}
+  .service-text{padding:var(--svc-pad-mobile);}
 }
 
-@media (max-width: 576px) {
-  .terapeuta-card {
-    width: 140px;             /* antes 160px */
-    padding: 1rem;
-  }
+/* =========================================================
+   TERAPEUTAS
+   ========================================================= */
+.terapeutas-section{background:var(--c-bg-t);padding:6rem 1.5rem;text-align:center;}
+.terapeutas-title{
+  font-size:clamp(2rem,5vw,2.8rem);
+  color:var(--c-primary);margin-bottom:4rem;
+}
+.terapeutas-grid{
+  display:flex;flex-wrap:wrap;gap:2.5rem;justify-content:center;
+}
+.terapeuta-card{
+  background:var(--c-primary-t);
+  border-radius:var(--radius-xl);
+  box-shadow:var(--shadow-lg);
+  padding:2rem;width:240px;color:var(--c-bg);
+  display:flex;flex-direction:column;align-items:center;
+}
+.terapeuta-img{
+  width:180px;height:280px;object-fit:cover;
+  border-radius:100px/140px;margin-bottom:1.2rem;
+}
+.terapeuta-name{font-size:1.35rem;font-weight:bold;margin-bottom:.35rem;}
+.terapeuta-role{font-size:1rem;color:var(--c-accent);}
 
-  .terapeuta-img {
-    width: 110px;             /* antes 130px */
-    height: 170px;            /* ajustado proporcionalmente */
-  }
+/* --- XS ajuste tarjetas terapeuta --- */
+@media (max-width:576px){
+  .terapeuta-card{width:140px;padding:1rem;}
+  .terapeuta-img{width:110px;height:170px;}
+}
+
+/* =========================================================
+   CONTACTO
+   ========================================================= */
+.contact{
+  background:var(--c-sand-t);padding:6rem 1.5rem;
+  color:var(--c-primary);position:relative;
+}
+.contact::before{
+  content:"";position:absolute;inset:0;
+  background:rgba(255,255,255,.65);z-index:-1;
+}
+.contact .services-title{
+  color:var(--c-primary);margin-bottom:2.5rem;
 }
