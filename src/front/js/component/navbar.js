@@ -1,72 +1,94 @@
-import React, { useEffect, useRef, useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import "../../styles/navbar.css";
-import logomizu from "../../img/mizulogo.png";
+import logomizu from "../../img/logosolo.png";
 
 export const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const navRef = useRef();
+  const { pathname } = useLocation();          // sabemos dónde estamos
+  const navigate     = useNavigate();
+  const [isOpen, setIsOpen] = useState(false); // colapso móvil
 
-  const toggleMenu = () => {
-    setIsOpen(prev => !prev);
-  };
+  const toggle = () => setIsOpen(!isOpen);
+  const close  = () => setIsOpen(false);
 
-  // Cierra el menú si haces clic fuera del navbar
-  useEffect(() => {
-    const handleClickOutside = (e) => {
-      if (navRef.current && !navRef.current.contains(e.target)) {
-        setIsOpen(false);
-      }
-    };
-
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, []);
+  // --------  ¿estamos en Home?  --------
+  const atHome = pathname === "/";
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-light custom-navbar" ref={navRef}>
+    <nav className="navbar navbar-expand-lg navbar-light custom-navbar">
       <div className="container-fluid d-flex flex-column flex-lg-row align-items-center justify-content-between">
-        {/* Logo */}
-        <Link className="navbar-brand" to="/">
+
+        {/* ----------  LOGO  ---------- */}
+        <Link className="navbar-brand" to="/" onClick={close}>
           <img
-            src="https://res.cloudinary.com/dfagobkwv/image/upload/v1745082135/Agregar_un_t%C3%ADtulo_4_1_cmulcf.png"
+            src={logomizu}
             alt="Mizu Logo"
             className="navbar-logo-img"
           />
         </Link>
 
-        {/* Botón hamburguesa */}
+        {/* ----------  TOGGLER  ---------- */}
         <button
           className="navbar-toggler"
           type="button"
-          onClick={toggleMenu}
+          onClick={toggle}
+          aria-label="Toggle navigation"
         >
-          <span className="navbar-toggler-icon"></span>
+          <span className="navbar-toggler-icon" />
         </button>
 
-        {/* Links */}
+        {/* ----------  LINKS  ---------- */}
         <div className={`collapse navbar-collapse ${isOpen ? "show" : ""}`} id="navbarNav">
           <div className="navbar-nav mx-auto">
-            <a className="nav-link" href="#home" onClick={() => setIsOpen(false)}>Inicio</a>
-            <a className="nav-link" href="#services" onClick={() => setIsOpen(false)}>Servicios</a>
-            <a className="nav-link" href="#conocenos" onClick={() => setIsOpen(false)}>Conócenos</a>
-            <a className="nav-link" href="#contact" onClick={() => setIsOpen(false)}>Contacto</a>
+
+            {/* Siempre visible */}
+            <Link className="nav-link" onClick={close} to="/">
+              Inicio
+            </Link>
+
+            {atHome && (
+              <>
+                <a className="nav-link" href="#services" onClick={close}>
+                  Servicios
+                </a>
+                <a className="nav-link" href="#conocenos" onClick={close}>
+                  Conócenos
+                </a>
+                <a className="nav-link" href="#contact" onClick={close}>
+                  Contacto
+                </a>
+              </>
+            )}
+
+            {/* NUEVO: Regala MIZU (gift card) */}
+            <button
+              className="nav-link btn btn-link p-0"
+              onClick={() => {
+                close();
+                navigate("/gift-card");
+              }}
+              style={{ textDecoration: "none" }}
+            >
+              Regala&nbsp;MIZU
+            </button>
           </div>
 
-          {/* WhatsApp mobile visible solo en colapsado */}
+          {/* ----------  WHATSAPP  ---------- */}
           <div className="navbar-whatsapp-mobile">
             <a
               href="https://wa.me/34691352596"
               className="navbar-whatsapp"
               target="_blank"
               rel="noopener noreferrer"
+              onClick={close}
             >
-              <i className="fab fa-whatsapp"></i> Escríbenos
+              <i className="fab fa-whatsapp" />
+              &nbsp; Escríbenos
             </a>
           </div>
         </div>
 
-        {/* WhatsApp para escritorio */}
+        {/* WhatsApp desktop */}        
         <div className="d-none d-lg-flex ms-auto">
           <a
             href="https://wa.me/34691352596"
@@ -74,7 +96,8 @@ export const Navbar = () => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <i className="fab fa-whatsapp"></i> Escríbenos
+            <i className="fab fa-whatsapp" />
+            &nbsp; Escríbenos
           </a>
         </div>
       </div>

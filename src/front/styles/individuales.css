@@ -1,143 +1,148 @@
+/* =========================================================
+   INDIVIDUALES – Servicios individuales
+   ========================================================= */
+
 .indiv-section {
-    position: relative;
-    min-height: 100vh;
-    background-image: url('https://res.cloudinary.com/dfagobkwv/image/upload/v1745019948/2_GENERALES.mp4.00_00_05_10.Imagen_fija001_evt0wr.jpg');
-    background-size: cover;
-    background-attachment: fixed;
-    background-position: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 5rem 2rem;
-  }
-  
-  .indiv-section-overlay {
-    background-color: rgba(244, 242, 239, 0.92);
-    padding: 4rem 2rem;
-    border-radius: 20px;
-    width: 100%;
-    max-width: 1200px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  }
-  
-  .indiv-title {
-    text-align: center;
-    font-size: 2.8rem;
-    color: #0D5C63;
-    margin-bottom: 4rem;
-    font-weight: 700;
-  }
-  
-  .indiv-card-list {
-    display: flex;
-    flex-direction: column;
-    gap: 3rem;
-  }
-  
-  .indiv-card-container {
-    display: flex;
-    align-items: center;
-    background-color: #ffffff;
-    border-radius: 16px;
-    overflow: hidden;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-    transition: transform 0.3s ease;
-  }
-  
+  min-height: 100vh;
+  position: relative;
+  padding: 6rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.indiv-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(244, 242, 239, 0.85);
+  backdrop-filter: blur(2px);
+  z-index: -1;
+}
+
+/* ---------- título global ---------- */
+.indiv-title {
+  text-align: center;
+  font-size: clamp(2.2rem, 5vw, 3rem);
+  color: var(--c-sand);
+  background-color: rgba(13,92,99,.55);
+  border-radius: 10px;
+  font-weight: 700;
+  margin-bottom: 3rem;
+}
+
+/* ---------- lista ---------- */
+.indiv-card-list {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+/* ---------- tarjeta ---------- */
+.indiv-card-container {
+  max-width: 900px; /* 🆕  ancho más contenido */
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background: var(--c-bg-t);
+  border: 1px solid var(--c-sand);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-lg);
+  backdrop-filter: blur(6px);
+  transition: transform 0.3s;
+}
+.indiv-card-container:hover {
+  transform: translateY(-6px);
+}
+.indiv-card-container.reverse {
+  flex-direction: row-reverse;
+}
+
+.indiv-image-wrapper {
+  flex: 0 0 320px;
+  max-height: 360px;
+  overflow: hidden;
+}
+.indiv-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.indiv-card-body {
+  flex: 1 1 0;
+  padding: var(--svc-pad-desktop);
+  color: var(--c-primary);
+}
+
+/* ---- tipografía ---- */
+.indiv-card-title {
+  font-size: 2rem;
+  font-weight: 700; /* 🆕 bold */
+  color: rgba(13,92,99,.55); /* 🆕 arena */
+  margin-bottom: 0.4rem;
+}
+.indiv-card-subtitle {
+  font-size: 1.2rem;
+  color: var(--c-secondary);
+  margin-bottom: 0.9rem;
+}
+.indiv-card-description {
+  line-height: 1.7;
+  margin-bottom: 1.2rem;
+  color: #444;
+}
+
+/* ---- lista con viñetas estilo Home ---- */
+.indiv-card-body ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0 0 1.2rem 0;
+}
+.indiv-card-body li {
+  position: relative;
+  margin-bottom: 0.55rem;
+  padding-left: 1.4rem;
+  color: #444;
+}
+.indiv-card-body li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #fff;
+  font-size: 1.25rem;
+}
+
+/* ---- botón ---- */
+.indiv-card-btn {
+  padding: 0.65rem 1.6rem;
+  border: none;
+  border-radius: 8px;
+  background: var(--c-primary);
+  color: var(--c-bg);
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.indiv-card-btn:hover {
+  background: var(--c-accent);
+  color: var(--c-primary);
+}
+
+/* ---------- responsive ---------- */
+@media (max-width: 768px) {
+  .indiv-card-container,
   .indiv-card-container.reverse {
-    flex-direction: row-reverse;
-  }
-  
-  .indiv-card-container:hover {
-    transform: translateY(-5px);
-  }
-  
-  .indiv-image-wrapper {
-    flex: 1;
-    min-width: 250px;
-    height: 100%;
-  }
-  
-  .indiv-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-  
-  .indiv-card-body {
-    flex: 2;
-    padding: 2rem;
-    display: flex;
     flex-direction: column;
-    justify-content: center;
   }
-  
-  .indiv-card-title {
-    font-size: 1.8rem;
-    color: #0D5C63;
-    margin-bottom: 0.8rem;
+  .indiv-image-wrapper {
+    width: 100%;
+    max-height: 220px;
   }
-  
-  .indiv-card-subtitle {
-    font-size: 1.2rem;
-    color: #1F7A8C;
-    margin-bottom: 1.2rem;
-  }
-  
-  .indiv-card-description {
-    font-size: 1rem;
-    color: #444;
-    margin-bottom: 1.5rem;
-    line-height: 1.7;
-  }
-  
-  .indiv-card-btn {
-    align-self: flex-start;
-    padding: 0.6rem 1.5rem;
-    background-color: #0D5C63;
-    color: #fff;
-    border: none;
-    border-radius: 8px;
-    font-weight: 500;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .indiv-card-btn:hover {
-    background-color: #1F7A8C;
-  }
-  
-  .indiv-empty-text {
+  .indiv-card-body {
+    padding: var(--svc-pad-mobile);
     text-align: center;
-    color: #666;
-    font-size: 1.2rem;
-    margin-top: 2rem;
   }
-  
-  /* === Responsive === */
-  @media (max-width: 768px) {
-    .indiv-card-container,
-    .indiv-card-container.reverse {
-      flex-direction: column;
-    }
-  
-    .indiv-image-wrapper {
-      width: 100%;
-      height: 220px;
-    }
-  
-    .indiv-img {
-      height: 100%;
-    }
-  
-    .indiv-card-body {
-      padding: 1.5rem;
-      text-align: center;
-    }
-  
-    .indiv-card-btn {
-      align-self: center;
-    }
+  .indiv-card-btn {
+    align-self: center;
   }
-  
+}

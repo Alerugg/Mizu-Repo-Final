@@ -11,9 +11,10 @@ import { Individuales } from "./pages/individuales";
 import { Parejas } from "./pages/parejas";
 import { Servicio } from "./pages/servicio";
 import { ContactUs } from "./pages/contactUs";
-import { GiftCard } from "./pages/giftCard";
 import { Single } from "./pages/single";
 import { PrivacyPolicy } from "./pages/privacyPolicy";
+import {GiftCardPurchase} from "./pages/GiftCardPurchase";
+import {GiftCardRedeem} from "./pages/GiftCardRedeem";
 
 // Componentes globales
 import { Navbar } from "./component/navbar";
@@ -48,7 +49,8 @@ const Layout = () => {
                         <Route element={<Parejas />} path="/parejas" />
                         <Route element={<Servicio />} path="/servicio/:id" />
                         <Route element={<ContactUs />} path="/contact" />
-                        <Route element={<GiftCard />} path="/giftcard" />
+                        <Route element={<GiftCardPurchase />} path="/gift-card" />
+                        <Route element={<GiftCardRedeem />} path="/contact" />
                         <Route element={<Single />} path="/single/:theid" />
                         <Route element={<h1>Not found!</h1>} path="*" />
                     </Routes>

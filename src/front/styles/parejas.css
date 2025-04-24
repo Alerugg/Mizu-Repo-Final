@@ -1,114 +1,166 @@
-.parejas-container {
-    background: linear-gradient(to bottom, #F4F2EF, #e2dad1, #F4F2EF);
-    background-attachment: fixed;
-    padding: 7rem 2rem;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
+/* =========================================================
+   PAREJAS – Servicios en pareja
+   ========================================================= */
+
+.parejas-section {
+  min-height: 100vh;
+  position: relative;
+  padding: 6rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.parejas-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(217, 201, 186, .80);
+  backdrop-filter: blur(2px);
+  z-index: -1;
+}
+
+/* ---------- título ---------- */
+.parejas-title {
+  font-size: clamp(2.2rem, 5vw, 3rem);
+  display: flex;
+  justify-content: center;
   
-  .parejas-title {
-    font-size: 3rem;
+  color: var(--c-sand);
+  background-color: rgba(13, 92, 99, 0.598);
+  border-radius: 10px;
+  font-weight: 700;
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+/* ---------- lista ---------- */
+.parejas-card-list {
+  display: flex;
+  flex-direction: column;
+  gap: 3.5rem;
+  width: 100%;
+  max-width: 1200px;
+}
+
+/* ---------- tarjeta ---------- */
+.parejas-card-container {
+  max-width: 900px;
+  /* 🆕  igual a individuales */
+  margin: 0 auto;
+  display: flex;
+  overflow: hidden;
+  width: 100%;
+  background: var(--c-bg-t);
+  border: 1px solid var(--c-sand);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-lg);
+  backdrop-filter: blur(6px);
+  transition: transform .3s;
+}
+
+.parejas-card-container:hover {
+  transform: translateY(-6px);
+}
+
+.parejas-card-container.reverse {
+  flex-direction: row-reverse;
+}
+
+.parejas-img-wrapper {
+  flex: 0 0 340px;
+  max-height: 380px;
+  overflow: hidden;
+}
+
+.parejas-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.parejas-card-body {
+  flex: 1 1 0;
+  padding: var(--svc-pad-desktop);
+  color: var(--c-primary);
+}
+
+.parejas-card-title {
+  font-size: 2rem;
+  font-weight: 700;
+  /* 🆕 bold arena */
+  color: var(--c-primary);
+  margin-bottom: .35rem;
+}
+
+.parejas-card-subtitle {
+  font-size: 1.2rem;
+  color: var(--c-secondary);
+  margin-bottom: .8rem;
+}
+
+.parejas-card-description {
+  line-height: 1.7;
+  margin-bottom: 1.3rem;
+  color: #444;
+}
+
+/* ---- lista estilo Home (si la descripción trae <ul>) ---- */
+.parejas-card-body ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0 0 1.2rem 0;
+}
+
+.parejas-card-body li {
+  position: relative;
+  margin-bottom: .55rem;
+  padding-left: 1.4rem;
+  color: #444;
+}
+
+.parejas-card-body li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #fff;
+  font-size: 1.25rem;
+}
+
+.parejas-card-btn {
+  padding: .75rem 1.9rem;
+  border: none;
+  border-radius: 8px;
+  background: var(--c-primary);
+  color: var(--c-bg);
+  cursor: pointer;
+  transition: background .3s;
+}
+
+.parejas-card-btn:hover {
+  background: var(--c-accent);
+  color: var(--c-primary);
+}
+
+/* ---------- responsive ---------- */
+@media(max-width:768px) {
+
+  .parejas-card-container,
+  .parejas-card-container.reverse {
+    flex-direction: column;
+  }
+
+  .parejas-img-wrapper {
+    width: 100%;
+    max-height: 220px;
+  }
+
+  .parejas-card-body {
+    padding: var(--svc-pad-mobile);
     text-align: center;
-    color: #0D5C63;
-    margin-bottom: 5rem;
   }
-  
-  .parejas-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 4rem;
-    align-items: center;
-    width: 100%;
-    max-width: 1200px;
+
+  .parejas-card-btn {
+    align-self: center;
   }
-  
-  /* Alternar dirección */
-  .pareja-card {
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    background-color: #ffffff;
-    border-radius: 16px;
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    transition: transform 0.3s ease;
-  }
-  
-  .pareja-card.reverse {
-    flex-direction: row-reverse;
-  }
-  
-  .pareja-card:hover {
-    transform: translateY(-8px);
-  }
-  
-  .pareja-image {
-    width: 50%;
-    height: auto;
-    object-fit: cover;
-  }
-  
-  .pareja-content {
-    flex: 1;
-    padding: 2.5rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-  
-  .pareja-texts {
-    flex-grow: 1;
-  }
-  
-  .pareja-title {
-    font-size: 2rem;
-    color: #0D5C63;
-    margin-bottom: 0.8rem;
-  }
-  
-  .pareja-subtitle {
-    font-size: 1.3rem;
-    color: #1F7A8C;
-    margin-bottom: 1rem;
-  }
-  
-  .pareja-description {
-    font-size: 1.1rem;
-    color: #444;
-    line-height: 1.7;
-  }
-  
-  .pareja-button {
-    margin-top: 1.5rem;
-    padding: 0.8rem 2rem;
-    background-color: #0D5C63;
-    color: #F4F2EF;
-    border: none;
-    border-radius: 8px;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .pareja-button:hover {
-    background-color: #1F7A8C;
-  }
-  
-  @media (max-width: 768px) {
-    .pareja-card,
-    .pareja-card.reverse {
-      flex-direction: column;
-    }
-  
-    .pareja-image {
-      width: 100%;
-      height: 220px;
-    }
-  
-    .pareja-content {
-      padding: 2rem;
-    }
-  }
-  
+}
